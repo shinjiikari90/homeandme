@@ -280,28 +280,30 @@
                 <div class="absolute right-0 top-0 text-[180px] font-black text-stone-50 opacity-20 select-none font-serif-kr leading-none pointer-events-none translate-x-12 -translate-y-6">宮合</div>
                 
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-                    <div class="space-y-2">
-                        <div class="flex items-center space-x-2">
-                            <span class="bg-stone-100 text-stone-800 text-[10px] font-bold px-2 py-0.5 rounded border border-stone-200 uppercase" id="resGenderAge">--</span>
-                            <span class="text-xs text-stone-500" id="resBirthDate">--</span>
+                    <!-- Left Column: Fixed CJK wrapping and layout compression -->
+                    <div class="space-y-2 flex-1 min-w-0 break-keep">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="bg-stone-100 text-stone-800 text-[10px] font-bold px-2 py-0.5 rounded border border-stone-200 uppercase whitespace-nowrap" id="resGenderAge">--</span>
+                            <span class="text-xs text-stone-500 whitespace-nowrap" id="resBirthDate">--</span>
                         </div>
-                        <h2 class="text-2xl md:text-3xl font-black font-serif-kr text-stone-900" id="resHeaderTitle">-- 님과 터전의 주파수</h2>
-                        <p class="text-sm text-stone-600" id="resAddressText">--</p>
+                        <h2 class="text-2xl md:text-3xl font-black font-serif-kr text-stone-900 leading-tight" id="resHeaderTitle">-- 님과 터전의 주파수</h2>
+                        <p class="text-sm text-stone-600 leading-normal" id="resAddressText">--</p>
                     </div>
 
-                    <!-- Visual Score Dial (Centering & wrapping fixed) -->
-                    <div class="flex items-center space-x-4 shrink-0 bg-cream-50 p-4 rounded-2xl border border-cream-200">
+                    <!-- Visual Score Dial (Fixed layout breaking and overlapping) -->
+                    <div class="flex items-center space-x-4 shrink-0 bg-cream-50 p-4 rounded-2xl border border-cream-200 w-full md:w-auto justify-between md:justify-start">
                         <div class="relative w-20 h-20 flex items-center justify-center shrink-0">
                             <!-- Circular Ring -->
                             <svg class="absolute transform -rotate-90 w-full h-full" viewBox="0 0 36 36">
                                 <path class="text-cream-200" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                 <path id="scoreCircle" class="text-fire transition-all duration-1000 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                             </svg>
-                            <span class="text-lg font-black font-serif-kr text-stone-900 whitespace-nowrap z-10" id="resScore">--점</span>
+                            <!-- Adjusted font size to fit inside circle without wrapping -->
+                            <span class="text-sm font-black font-serif-kr text-stone-900 whitespace-nowrap z-10" id="resScore">--점</span>
                         </div>
-                        <div>
-                            <p class="text-[10px] text-stone-500 font-bold uppercase tracking-wider">풍수명리 종합 궁합</p>
-                            <p class="text-base font-black font-serif-kr text-cream-800" id="resGrade">평가 진행 중</p>
+                        <div class="min-w-0 break-keep">
+                            <p class="text-[10px] text-stone-500 font-bold uppercase tracking-wider whitespace-nowrap">풍수명리 종합 궁합</p>
+                            <p class="text-base font-black font-serif-kr text-cream-800 leading-tight" id="resGrade">평가 진행 중</p>
                         </div>
                     </div>
                 </div>
@@ -636,7 +638,7 @@
                 score: finalScore,
                 grade: grade,
                 fiveElements: { wood, fire, earth, metal, water },
-                sajuDetail: `${name} 님의 사주는 명리학적으로 정밀 경도시차 32분을 적용해 분석한 결과, '${birthHour.split(' ')[0]}'의 절묘한 천체 기운에 완벽 부합합니다.\n전체 오행의 세력을 보면 목(木) 기운이 ${wood}개, 수(水) 기운이 ${water}개로 터전과의 직접적인 공명을 개시할 충분한 원천을 지니고 계십니다. 이번 만세력 연산에서는 사주 원국의 열린 그릇을 기준으로 하여 이 공간과의 운명적 주파수를 직접 해독했습니다.`,
+                sajuDetail: `${name} 님의 사주는 명리학적으로 정밀 경도시차 32분을 적용해 분석한 결과, '${birthHour.split(' ')[0]}'의 절묘한 천체 기운에 완벽 부합합니다.\n전체 오행의 세력을 보면 목(木) 기운이 ${wood}개, 수(수) 기운이 ${water}개로 터전과의 직접적인 공명을 개시할 충분한 원천을 지니고 계십니다. 이번 만세력 연산에서는 사주 원국의 열린 그릇을 기준으로 하여 이 공간과의 운명적 주파수를 직접 해독했습니다.`,
                 geomancy: `입력하신 '${address}' 일대는 예로부터 산줄기의 흐름이 조화롭게 휘감아 내려와 땅의 기운이 평온하게 누적되는 온화한 형국을 띠고 있습니다. 특히 배산임수의 기맥이 수려하게 펼쳐져 외부에서 불어오는 험한 북풍을 막아주며, 거주 층수인 '${floor}'의 환경에서 발생하는 고유 기운과 맞닿아 입주자의 지기(地氣) 흡수율을 극대화시켜주는 고유 명당 지점에 속합니다.`,
                 lore: `이 터전이 자리 잡은 '${localArea}'라는 지명은 본래 동양 풍수사상에서 상서로운 동물이 기운을 머금고 쉬어간다는 기맥 깊은 전설이 전해져 내려오는 역사적인 장소입니다. 지명의 한자적 뜻풀이 또한 터전에 거주하는 이들의 학문적 성취와 자손들의 안녕을 기원하는 대길(大吉)의 염원이 담겨 있어, 거주하는 것만으로 마음의 중심이 곧게 세워지는 기운의 은혜가 있습니다.`,
                 prices: { trade: tradePrice, rent: rentPrice },
