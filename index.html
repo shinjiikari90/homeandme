@@ -42,11 +42,16 @@
         .gradient-border {
             border-image: linear-gradient(to right, #2E7D32, #C62828, #EF6C00, #78909C, #1565C0) 1;
         }
-        /* Mobile adjustment for dates and times */
-        input[type="date"], input[type="time"] {
-            min-width: 0;
-            width: 100%;
-            box-sizing: border-box;
+        
+        /* Mobile & iOS Safari absolute alignment for all inputs */
+        input[type="text"], input[type="date"], input[type="time"], select {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
     </style>
 </head>
@@ -104,7 +109,7 @@
                 <!-- Saju Inputs -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Left Column: Name & Gender & Calendar -->
-                    <div class="space-y-4">
+                    <div class="space-y-4 min-w-0">
                         <div>
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">대상자 성함</label>
                             <input type="text" id="userName" placeholder="예: 홍길동" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
@@ -139,7 +144,7 @@
                     </div>
 
                     <!-- Right Column: Date & Time of Birth with Meridian shift disclaimer -->
-                    <div class="space-y-4">
+                    <div class="space-y-4 min-w-0">
                         <div>
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">생년월일</label>
                             <input type="date" id="birthDate" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
@@ -161,13 +166,13 @@
                 <!-- Address & Living details -->
                 <div class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="md:col-span-2">
+                        <div class="md:col-span-2 min-w-0">
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2 flex items-center justify-between">
                                 <span>거주지 도로명/지번 주소 (필수)</span>
                             </label>
                             <input type="text" id="homeAddress" placeholder="예: 서울시 서초구 서초대로 11" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
                         </div>
-                        <div>
+                        <div class="min-w-0">
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">집의 방향 (옵션)</label>
                             <select id="homeDirection" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm">
                                 <option value="미지정">방향 모름/선택 안 함</option>
@@ -184,7 +189,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
+                        <div class="min-w-0">
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">거주 층수 (옵션)</label>
                             <select id="homeFloor" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm">
                                 <option value="일반">선택 안 함</option>
@@ -195,7 +200,7 @@
                                 <option value="초고층">초고층 (21층 이상, 양기가 매우 강함)</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="min-w-0">
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">거주 인원 수 (옵션)</label>
                             <select id="homeResidents" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm">
                                 <option value="1명">독거 (1인 거주)</option>
