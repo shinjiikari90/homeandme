@@ -43,12 +43,14 @@
             border-image: linear-gradient(to right, #2E7D32, #C62828, #EF6C00, #78909C, #1565C0) 1;
         }
         
-        /* Mobile & iOS Safari absolute alignment for all inputs */
-        input[type="text"], input[type="date"], input[type="time"], select {
+        /* Mobile & iOS Safari absolute alignment for all inputs and selects */
+        input[type="text"], input[type="date"], select {
             width: 100% !important;
             max-width: 100% !important;
             min-width: 0 !important;
             box-sizing: border-box !important;
+            display: block !important;
+            height: 48px !important;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -70,7 +72,7 @@
                 </div>
             </div>
             <div class="hidden sm:block text-xs bg-cream-100 text-cream-800 px-3 py-1.5 rounded-full font-medium border border-cream-200">
-                <i class="fa-solid fa-compass-drafting mr-1 text-earth"></i> 정밀 경도시차 보정(32분) 만세력 연동
+                <i class="fa-solid fa-compass-drafting mr-1 text-earth"></i> 정밀 경도시차 보정 만세력 연동
             </div>
         </div>
     </header>
@@ -92,7 +94,7 @@
                     우리는 매일 집이라는 공간에서 우주의 기운을 흡수합니다. 한국 표준시(동경 135도) 기준과 실제 서울/경기 지역의 경도(동경 127.5도) 차이인 <strong class="text-fire">32분의 시차를 정확하게 분석</strong>하여 오차 없는 만세력 생시를 판정하고, 거주지 지명 유래 및 풍수적 기운과의 절대적 결합을 과학적으로 풀어냅니다.
                 </p>
                 <div class="flex flex-wrap gap-2 text-xs text-stone-500">
-                    <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-wood mr-1"></i>정밀 만세력</span>
+                    <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-wood mr-1"></i>정밀 12간지 시간제</span>
                     <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-fire mr-1"></i>풍수지리 실시간 추적</span>
                     <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-earth mr-1"></i>2026.06.30 최신 시세 반영</span>
                 </div>
@@ -118,10 +120,10 @@
                         <div>
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">성별</label>
                             <div class="grid grid-cols-2 gap-2">
-                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-sm font-semibold hover:bg-cream-100 transition-colors">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl h-[48px] bg-cream-50 cursor-pointer text-sm font-semibold hover:bg-cream-100 transition-colors">
                                     <input type="radio" name="gender" value="남성" checked class="mr-2 text-cream-800 focus:ring-0"> 남성
                                 </label>
-                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-sm font-semibold hover:bg-cream-100 transition-colors">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl h-[48px] bg-cream-50 cursor-pointer text-sm font-semibold hover:bg-cream-100 transition-colors">
                                     <input type="radio" name="gender" value="여성" class="mr-2 text-cream-800 focus:ring-0"> 여성
                                 </label>
                             </div>
@@ -130,13 +132,13 @@
                         <div>
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">역법 구분</label>
                             <div class="grid grid-cols-3 gap-2">
-                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl h-[48px] bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
                                     <input type="radio" name="calendarType" value="양력" checked class="mr-1.5 text-cream-800 focus:ring-0"> 양력
                                 </label>
-                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl h-[48px] bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
                                     <input type="radio" name="calendarType" value="음력 평달" class="mr-1.5 text-cream-800 focus:ring-0"> 평달
                                 </label>
-                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl h-[48px] bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
                                     <input type="radio" name="calendarType" value="음력 윤달" class="mr-1.5 text-cream-800 focus:ring-0"> 윤달
                                 </label>
                             </div>
@@ -152,11 +154,25 @@
 
                         <div>
                             <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2 flex justify-between items-center">
-                                <span>태어난 시간</span>
-                                <span class="text-[9px] text-fire font-normal"><i class="fa-solid fa-circle-exclamation"></i> 32분 보정</span>
+                                <span>태어난 시간 (12간지)</span>
+                                <span class="text-[9px] text-fire font-normal"><i class="fa-solid fa-circle-exclamation"></i> 32분 한국시 자동보정</span>
                             </label>
-                            <input type="time" id="birthTime" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
-                            <p class="text-[10px] text-stone-400 mt-1">한국시 기준의 분 단위 시간에서 실제 태양 공전 궤도상 경도 시차를 완벽히 연산 처리합니다.</p>
+                            <select id="birthHour" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
+                                <option value="모름">모름 / 선택 안함</option>
+                                <option value="자시 (23:30 ~ 01:30)">자시 (子時, 23:30 ~ 01:30)</option>
+                                <option value="축시 (01:30 ~ 03:30)">축시 (丑時, 01:30 ~ 03:30)</option>
+                                <option value="인시 (03:30 ~ 05:30)">인시 (寅時, 03:30 ~ 05:30)</option>
+                                <option value="묘시 (05:30 ~ 07:30)">묘시 (卯時, 05:30 ~ 07:30)</option>
+                                <option value="진시 (07:30 ~ 09:30)">진시 (辰時, 07:30 ~ 09:30)</option>
+                                <option value="사시 (09:30 ~ 11:30)">사시 (巳時, 09:30 ~ 11:30)</option>
+                                <option value="오시 (11:30 ~ 13:30)">오시 (午時, 11:30 ~ 13:30)</option>
+                                <option value="미시 (13:30 ~ 15:30)">미시 (未時, 13:30 ~ 15:30)</option>
+                                <option value="신시 (15:30 ~ 17:30)">신시 (申時, 15:30 ~ 17:30)</option>
+                                <option value="유시 (17:30 ~ 19:30)">유시 (酉時, 17:30 ~ 19:30)</option>
+                                <option value="술시 (19:30 ~ 21:30)">술시 (戌時, 19:30 ~ 21:30)</option>
+                                <option value="해시 (21:30 ~ 23:30)">해시 (亥時, 21:30 ~ 23:30)</option>
+                            </select>
+                            <p class="text-[10px] text-stone-400 mt-1">간편하게 태어난 시간대(간지)를 선택하면, 경도 시차를 반영해 가장 정확한 생시 기운을 찾아냅니다.</p>
                         </div>
                     </div>
                 </div>
@@ -587,7 +603,7 @@
             const gender = document.querySelector('input[name="gender"]:checked').value;
             const calendarType = document.querySelector('input[name="calendarType"]:checked').value;
             const birthDate = document.getElementById('birthDate').value;
-            const birthTime = document.getElementById('birthTime').value;
+            const birthHour = document.getElementById('birthHour').value;
             const address = document.getElementById('homeAddress').value;
             const direction = document.getElementById('homeDirection').value;
             const floor = document.getElementById('homeFloor').value;
@@ -601,7 +617,7 @@
             // Loading steps animation simulating celestial alignment
             const statusTexts = [
                 { prg: 20, t: "천문 만세력 좌표 조정 중...", d: "동경 135도 표준시와 실제 입력지 경도 시차(대략 32분) 공간 편차 보정 계산 중..." },
-                { prg: 40, t: "사주 오행 원국 및 절입 시간 계산 중...", d: `${birthDate} ${birthTime} 기준 24절기 우주 정전기적 배치 분석 중...` },
+                { prg: 40, t: "사주 오행 원국 및 절입 시간 계산 중...", d: `${birthDate} ${birthHour} 기준 24절기 우주 정전기적 배치 분석 중...` },
                 { prg: 65, t: "주소지 지맥 및 역사 설화 실시간 추적 중...", d: `'${address}' 의 실제 고유 형국과 지명 유래를 인터넷에서 탐색 중...` },
                 { prg: 85, t: "2026.06.30 기준 주변 시세 및 궁합 결합 중...", d: "이 터전의 최신 매매/임대 시장 기운과 사용자의 사주 기운 융합 평가 중..." }
             ];
@@ -623,12 +639,16 @@
             너는 동양의 사주명리학과 풍수지리설을 완벽하게 통달한 수십 년 경력의 대선사(大禪師)이자 지리학자야.
             아래 입력된 개인의 사주 기본 정보와 거주하는 집의 주소지 풍수/물리적 변수를 심층 대조하여, 차원이 다른 공간명리학적 궁합 분석 리포트를 작성해 주어라.
 
+            이 분석은 기계적이고 뻔한 답변이 절대 아니어야 하며, 입력된 사주의 오행(목, 화, 토, 금, 수) 치우침 상태와 집의 물리적 풍수 성향(방향, 층, 지명 유래)을 실시간으로 직조하여 오직 이 유저만을 위한 세상에 단 하나뿐인 주파수 대조 리포트를 완성해라.
+
             반드시 실제 주소 '${address}'의 실제 지리적 특성, 명당 여부, 그리고 지명 유래(설화)를 구체적으로 검색해서 기술할 것.
             또한, 반드시 2026년 6월 30일 기준의 해당 지역 실거래가 동향 및 추정 시세(매매, 전월세) 정보를 최신으로 검색하여 정확하게 제공해야 함.
 
             [입력 정보]
             - 대상자 이름: ${name} (${gender})
-            - 생년월일시: ${birthDate} ${birthTime} (${calendarType})
+            - 생년월일: ${birthDate}
+            - 태어난 시간대(12간지): ${birthHour}
+            - 역법 구분: ${calendarType}
             - 거주지 주소: ${address}
             - 집의 방향: ${direction}
             - 거주 층수: ${floor}
@@ -709,13 +729,19 @@
                     throw new Error("결과 텍스트를 생성하지 못했습니다. 다시 시도해 주세요.");
                 }
 
-                // Parse JSON from text blocks
-                const jsonMatch = resultText.match(/```json\s*([\s\S]*?)\s*```/) || resultText.match(/({[\s\S]*})/);
-                if (!jsonMatch) {
-                    throw new Error("결과 구조를 올바르게 파싱하지 못했습니다.");
+                // Super robust JSON extraction logic
+                let cleanText = resultText.trim();
+                const jsonStart = cleanText.indexOf('{');
+                const jsonEnd = cleanText.lastIndexOf('}');
+                
+                if (jsonStart === -1 || jsonEnd === -1) {
+                    throw new Error("결과 JSON 데이터 블록을 찾을 수 없습니다.");
                 }
+                
+                cleanText = cleanText.substring(jsonStart, jsonEnd + 1);
 
-                const resultData = JSON.parse(jsonMatch[1]);
+                // Parse sanitized JSON
+                const resultData = JSON.parse(cleanText);
 
                 // Map data to DOM
                 document.getElementById('resHeaderTitle').textContent = `${name} 님과 해당 공간의 주파수`;
@@ -729,7 +755,7 @@
 
                 // Gender Age details
                 document.getElementById('resGenderAge').textContent = `${gender} · ${calendarType}`;
-                document.getElementById('resBirthDate').textContent = `${birthDate} ${birthTime} 생시 반영`;
+                document.getElementById('resBirthDate').textContent = `${birthDate} ${birthHour} 반영`;
 
                 // Tab 1 Saju Mapping
                 document.getElementById('element-wood').textContent = resultData.fiveElements.wood;
@@ -800,7 +826,7 @@
             } catch (err) {
                 clearInterval(interval);
                 document.getElementById('loadingSection').classList.add('hidden');
-                showError("우주 기운 수집 중 에러가 발생했어요! 인터넷 연결 상태나 주소를 다시 확인해주세요: " + err.message);
+                showError("우주 기운 수집 중 에러가 발생했어요! 인터넷 연결 상태가 정상이더라도 명리 서버 파싱 중 에러가 날 수 있으니 주소지를 다시 한 번 상세하게 확인해주세요 : " + err.message);
             }
         };
     </script>
