@@ -3,162 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>운명과 공간: 사주 x 주소 풍수 궁합</title>
+    <title>명리공간(命理空間) - 사주와 집의 공간 궁합</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        wood: '#2d6a4f',
-                        fire: '#d90429',
-                        earth: '#f5b041',
-                        metal: '#95a5a6',
-                        water: '#1b263b',
+                        cream: {
+                            50: '#FAF8F5',
+                            100: '#F5EFE6',
+                            200: '#E8DFD1',
+                            800: '#4A3E31',
+                        },
+                        wood: '#2E7D32',
+                        fire: '#C62828',
+                        earth: '#EF6C00',
+                        metal: '#78909C',
+                        water: '#1565C0',
                     },
                     fontFamily: {
-                        myeongjo: ['Nanum Myeongjo', 'Batang', 'serif'],
-                        sans: ['Pretendard', 'Malgun Gothic', 'sans-serif']
+                        sans: ['Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif'],
+                        serif: ['ChosunGs', 'Nanum Myeongjo', 'Georgia', 'serif']
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts for premium Korean Serif -->
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome for symbols & icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .five-elements-bg {
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.05) 100%);
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=Noto+Serif+KR:wght@600;900&family=Pretendard:wght@400;600;800&display=swap');
+        
+        .font-serif-kr {
+            font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
         }
-        .dark .five-elements-bg {
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.4) 100%);
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #475569;
+        .gradient-border {
+            border-image: linear-gradient(to right, #2E7D32, #C62828, #EF6C00, #78909C, #1565C0) 1;
         }
     </style>
 </head>
-<body class="bg-[#fcfbf7] text-slate-800 dark:bg-[#121212] dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-cream-50 text-cream-800 min-h-screen font-sans">
 
-    <!-- Header -->
-    <header class="border-b border-stone-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Header Section -->
+    <header class="border-b border-cream-200 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 to-amber-900 flex items-center justify-center text-white shadow-md">
-                    <span class="font-myeongjo font-bold text-lg">☯</span>
+                <div class="w-10 h-10 rounded-full bg-cream-800 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-yin-yang text-xl animate-spin" style="animation-duration: 8s;"></i>
                 </div>
                 <div>
-                    <h1 class="font-myeongjo font-extrabold text-xl tracking-tight text-stone-900 dark:text-stone-50">운명과 공간</h1>
-                    <p class="text-xs text-stone-500 dark:text-stone-400">사주 x 주소 하우스 궁합 솔루션</p>
+                    <h1 class="text-xl font-bold font-serif-kr tracking-wider text-cream-800">命理空間</h1>
+                    <p class="text-xs text-stone-500 font-medium">사주 & 집 우주적 기운 궁합</p>
                 </div>
             </div>
-            
-            <div class="flex items-center space-x-2">
-                <!-- Theme Toggle -->
-                <button id="themeToggle" class="p-2 rounded-full hover:bg-stone-100 dark:hover:bg-zinc-800 text-stone-600 dark:text-zinc-300 transition" title="화면 테마 변경">
-                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
-                    <i class="fa-solid fa-sun text-lg hidden dark:block"></i>
-                </button>
+            <div class="text-xs bg-cream-100 text-cream-800 px-3 py-1.5 rounded-full font-medium border border-cream-200">
+                <i class="fa-solid fa-compass-drafting mr-1 text-earth"></i> 정밀 경도시차 보정(32분) 만세력 연동
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-4xl mx-auto px-4 py-8 w-full">
-        <!-- Intro Section -->
-        <div class="text-center mb-10">
-            <span class="px-3 py-1 text-xs font-semibold tracking-wider text-amber-800 bg-amber-100 dark:text-amber-200 dark:bg-amber-950/50 rounded-full uppercase">정통 명리학 x 현대 입지 풍수</span>
-            <h2 class="font-myeongjo text-3xl md:text-4xl font-extrabold mt-3 mb-4 text-stone-900 dark:text-stone-100">나와 지금 이 집, 과연 하늘이 내린 짝일까?</h2>
-            <p class="text-stone-600 dark:text-stone-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                타고난 생년월일시의 사주 기운과 살고 있는 공간의 지리적 풍수를 대조하여, 서로 밀어내고 당기는 우주의 에너지를 한눈에 분석해 드립니다.
-            </p>
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        
+        <!-- App Intro Hero -->
+        <div class="bg-gradient-to-r from-cream-100 to-cream-50 rounded-3xl p-6 md:p-8 border border-cream-200 mb-8 shadow-sm relative overflow-hidden">
+            <div class="absolute right-0 bottom-0 opacity-10 translate-x-10 translate-y-10">
+                <i class="fa-solid fa-yin-yang text-[240px]"></i>
+            </div>
+            <div class="relative z-10 max-w-2xl">
+                <span class="inline-block bg-cream-800 text-white text-[11px] font-bold tracking-widest px-2.5 py-1 rounded mb-4">공간명리학 (空間命理學)</span>
+                <h2 class="text-2xl md:text-3xl font-black font-serif-kr text-stone-900 leading-tight mb-3">
+                    어떤 땅 위에 살고 계십니까?<br>당신의 사주와 집의 숨겨진 주파수 분석
+                </h2>
+                <p class="text-stone-600 text-sm md:text-base leading-relaxed mb-4">
+                    우리는 매일 집이라는 공간에서 우주의 기운을 흡수합니다. 한국 표준시(동경 135도) 기준과 실제 서울/경기 지역의 경도(동경 127.5도) 차이인 <strong class="text-fire">32분의 시차를 정확하게 분석</strong>하여 오차 없는 만세력 생시를 판정하고, 거주지 지명 유래 및 풍수적 기운과의 절대적 결합을 과학적으로 풀어냅니다.
+                </p>
+                <div class="flex flex-wrap gap-2 text-xs text-stone-500">
+                    <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-wood mr-1"></i>정밀 만세력</span>
+                    <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-fire mr-1"></i>풍수지리 실시간 추적</span>
+                    <span class="bg-white px-2.5 py-1 rounded-full border border-cream-200"><i class="fa-solid fa-check text-earth mr-1"></i>2026.06.30 최신 시세 반영</span>
+                </div>
+            </div>
         </div>
 
         <!-- Input Form Section -->
-        <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-stone-100 dark:border-zinc-800/80 p-6 md:p-8 mb-8 transition-all">
-            <div class="flex items-center space-x-2 mb-6 border-b border-stone-100 dark:border-zinc-800/50 pb-4">
-                <i class="fa-solid fa-compass text-amber-700 dark:text-amber-500 text-xl"></i>
-                <h3 class="font-myeongjo text-xl font-bold text-stone-900 dark:text-stone-100">정보 입력하기</h3>
-            </div>
+        <section class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8 mb-8">
+            <h3 class="text-lg font-bold font-serif-kr text-cream-800 mb-6 flex items-center border-b pb-3 border-cream-100">
+                <i class="fa-solid fa-user-gear mr-2 text-earth"></i> 분석 대상자 사주 및 주소 입력
+            </h3>
+            
+            <form id="compatibilityForm" class="space-y-6">
+                <!-- Saju Inputs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left Column: Name & Gender & Calendar -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">대상자 성함</label>
+                            <input type="text" id="userName" value="신지군" placeholder="성함을 입력하세요" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
+                        </div>
 
-            <form id="analysisForm" class="space-y-6">
-                <!-- 1. 사주 입력 정보 (필수) -->
-                <div>
-                    <h4 class="text-sm font-bold text-stone-700 dark:text-stone-300 mb-3 flex items-center">
-                        <span class="w-1.5 h-1.5 bg-amber-600 rounded-full mr-2"></span>
-                        생년월일시 입력 (필수)
-                    </h4>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">생년월일</label>
-                            <input type="date" id="birthDate" required class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">성별</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-sm font-semibold hover:bg-cream-100 transition-colors">
+                                    <input type="radio" name="gender" value="남성" checked class="mr-2 text-cream-800 focus:ring-0"> 남성
+                                </label>
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-sm font-semibold hover:bg-cream-100 transition-colors">
+                                    <input type="radio" name="gender" value="여성" class="mr-2 text-cream-800 focus:ring-0"> 여성
+                                </label>
+                            </div>
                         </div>
+
                         <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">태어난 시각</label>
-                            <input type="time" id="birthTime" required class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">양력 / 음력</label>
-                            <select id="calendarType" class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                                <option value="solar">양력 (Solar)</option>
-                                <option value="lunar">음력 평달 (Lunar)</option>
-                                <option value="lunar_leap">음력 윤달 (Lunar Leap)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">성별</label>
-                            <select id="gender" class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                                <option value="male">남성</option>
-                                <option value="female">여성</option>
-                            </select>
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">역법 구분</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
+                                    <input type="radio" name="calendarType" value="양력" checked class="mr-1.5 text-cream-800 focus:ring-0"> 양력
+                                </label>
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
+                                    <input type="radio" name="calendarType" value="음력 평달" class="mr-1.5 text-cream-800 focus:ring-0"> 음력 평달
+                                </label>
+                                <label class="flex items-center justify-center border border-cream-200 rounded-xl py-2.5 bg-cream-50 cursor-pointer text-xs font-semibold hover:bg-cream-100 transition-colors">
+                                    <input type="radio" name="calendarType" value="음력 윤달" class="mr-1.5 text-cream-800 focus:ring-0"> 음력 윤달
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <!-- Manseryeok correction notice -->
-                    <p class="text-[11px] text-stone-500 dark:text-stone-400 mt-2 flex items-center">
-                        <i class="fa-solid fa-circle-info mr-1 text-amber-600"></i>
-                        동경 135도 기준 한국 표준시 오차를 바로잡기 위해 자동으로 <strong>+30분 표준시 보정</strong>이 적용됩니다. (가장 신뢰성 높은 명리 데이터 제공)
-                    </p>
-                </div>
 
-                <!-- 2. 주소 입력 정보 (필수) -->
-                <div>
-                    <h4 class="text-sm font-bold text-stone-700 dark:text-stone-300 mb-3 flex items-center">
-                        <span class="w-1.5 h-1.5 bg-amber-600 rounded-full mr-2"></span>
-                        현재 살고 있는 집 주소 (필수)
-                    </h4>
-                    <div class="grid grid-cols-1 gap-4">
+                    <!-- Right Column: Date & Time of Birth with Meridian shift disclaimer -->
+                    <div class="space-y-4">
                         <div>
-                            <input type="text" id="address" required placeholder="예: 서울특별시 마포구 아현동 또는 경기 수원시 영통구 하동" class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">생년월일</label>
+                            <input type="date" id="birthDate" value="1995-10-17" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2 flex justify-between">
+                                <span>태어난 시간</span>
+                                <span class="text-[10px] text-fire font-normal"><i class="fa-solid fa-circle-exclamation"></i> 동경 127.5도 32분 지연 자동 교정</span>
+                            </label>
+                            <input type="time" id="birthTime" value="08:30" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
+                            <p class="text-[10px] text-stone-400 mt-1">예: 오전 8시 30분생은 한국 표준시 적용 시 실제 태양공간상 '진시(辰時, 07:32~09:32)'에 완벽 부합하도록 보정됩니다.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3. 옵션 입력 정보 (선택) -->
-                <div>
-                    <h4 class="text-sm font-bold text-stone-700 dark:text-stone-300 mb-3 flex items-center">
-                        <span class="w-1.5 h-1.5 bg-stone-400 dark:bg-zinc-600 rounded-full mr-2"></span>
-                        주거 환경 추가 정보 (선택 옵션)
-                    </h4>
+                <hr class="border-cream-100">
+
+                <!-- Address & Living details -->
+                <div class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span>거주지 도로명/지번 주소 (필수)</span>
+                                <span class="text-[10px] text-stone-400 font-normal">지명 및 풍수 자동 추적용</span>
+                            </label>
+                            <input type="text" id="homeAddress" placeholder="예: 서울특별시 종로구 삼청로 37" value="경기도 수원시 팔달구 효원로 241" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm" required>
+                        </div>
                         <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">집의 방향 (거실 발코니 기준)</label>
-                            <select id="houseDirection" class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                                <option value="">선택 안 함 (모름)</option>
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">집의 방향 (옵션)</label>
+                            <select id="homeDirection" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm">
+                                <option value="미지정">방향 모름/선택 안 함</option>
                                 <option value="남향">남향 (南向)</option>
                                 <option value="동향">동향 (東向)</option>
                                 <option value="서향">서향 (西向)</option>
@@ -169,693 +176,636 @@
                                 <option value="북서향">북서향 (北西向)</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">거주하는 층</label>
-                            <select id="houseFloor" class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                                <option value="">선택 안 함 (모름)</option>
-                                <option value="반지하">반지하 / 지하층</option>
-                                <option value="저층 (1~4층)">저층 (1~4층)</option>
-                                <option value="중층 (5~12층)">중층 (5~12층)</option>
-                                <option value="고층 (13~20층)">고층 (13~20층)</option>
-                                <option value="초고층 (21층 이상)">초고층 (21층 이상)</option>
-                                <option value="단독주택 (단층)">단독주택 (단층)</option>
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">거주 층수 (옵션)</label>
+                            <select id="homeFloor" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm">
+                                <option value="일반">선택 안 함</option>
+                                <option value="지하/반지하">지하 / 반지하 (음기 기운)</option>
+                                <option value="저층">저층 (1층~3층, 땅의 기운이 강함)</option>
+                                <option value="중층">중층 (4층~10층, 기운이 조화로움)</option>
+                                <option value="고층">고층 (11층~20층, 바람과 하늘의 기운)</option>
+                                <option value="초고층">초고층 (21층 이상, 양기가 매우 강함)</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs text-stone-500 dark:text-stone-400 mb-1">총 거주 인원</label>
-                            <select id="residents" class="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-zinc-700 bg-stone-50 dark:bg-zinc-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
-                                <option value="">선택 안 함</option>
-                                <option value="1명 (1인 가구)">1명 (1인 가구)</option>
-                                <option value="2명 (동반자 가구)">2명</option>
-                                <option value="3명">3명</option>
-                                <option value="4명 이상">4명 이상</option>
+                            <label class="block text-xs font-bold text-stone-600 uppercase tracking-wider mb-2">거주 인원 수 (옵션)</label>
+                            <select id="homeResidents" class="w-full bg-cream-50 border border-cream-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cream-800 focus:border-transparent text-sm">
+                                <option value="1명">독거 (1인 거주)</option>
+                                <option value="2명">2인 가구</option>
+                                <option value="3~4명" selected>3~4인 가구 (기본 화합)</option>
+                                <option value="5명 이상">5인 이상 대가족 (북적이는 기운)</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- Submit Button -->
                 <div class="pt-4">
-                    <button type="submit" class="w-full bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white font-myeongjo font-bold text-lg py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center space-x-2">
-                        <span>궁합 확인하러 가기</span>
-                        <i class="fa-solid fa-yin-yang animate-spin-slow"></i>
+                    <button type="submit" class="w-full bg-cream-800 text-white font-bold font-serif-kr text-base py-4 rounded-xl hover:bg-stone-900 transition-colors shadow-md flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-yin-yang animate-spin"></i>
+                        <span>우주 기운 융합 및 풍수 궁합 분석하기</span>
                     </button>
                 </div>
             </form>
-        </div>
+        </section>
 
-        <!-- Custom Modal Alerts (No browser alert) -->
-        <div id="customAlert" class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 hidden">
-            <div class="bg-white dark:bg-zinc-900 p-6 rounded-xl max-w-sm w-full text-center shadow-2xl border border-stone-200 dark:border-zinc-800">
-                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-3xl mb-3"></i>
-                <h4 id="alertTitle" class="text-lg font-bold text-stone-900 dark:text-stone-100 font-myeongjo mb-2">알림</h4>
-                <p id="alertMessage" class="text-sm text-stone-600 dark:text-stone-400 mb-4"></p>
-                <button onclick="closeAlert()" class="px-5 py-2 bg-amber-700 hover:bg-amber-800 text-white text-sm font-semibold rounded-lg transition">확인</button>
-            </div>
-        </div>
-
-        <!-- Loading Spinner Screen -->
-        <div id="loadingScreen" class="hidden py-20 text-center flex flex-col items-center justify-center space-y-4">
-            <div class="relative w-24 h-24">
-                <!-- Glowing rotating circles for yin-yang -->
-                <div class="absolute inset-0 rounded-full border-4 border-dashed border-amber-600 animate-spin"></div>
-                <div class="absolute inset-2 rounded-full border-4 border-amber-900/40 dark:border-stone-100/10 flex items-center justify-center">
-                    <span class="text-3xl text-amber-700 dark:text-amber-500">☯</span>
+        <!-- Loading View -->
+        <section id="loadingSection" class="hidden bg-white rounded-3xl border border-cream-200 shadow-sm p-12 text-center space-y-6">
+            <div class="relative w-24 h-24 mx-auto">
+                <div class="absolute inset-0 rounded-full border-4 border-cream-100 border-t-cream-800 animate-spin"></div>
+                <div class="absolute inset-2 rounded-full border-4 border-dotted border-earth/40 animate-spin" style="animation-direction: reverse; animation-duration: 5s;"></div>
+                <div class="absolute inset-0 flex items-center justify-center text-cream-800">
+                    <i class="fa-solid fa-yin-yang text-3xl animate-pulse"></i>
                 </div>
             </div>
-            <p class="font-myeongjo text-lg font-bold text-stone-800 dark:text-stone-200">명리학 만세력 좌표 분석 중...</p>
-            <p class="text-xs text-stone-500 dark:text-stone-400 animate-pulse">입력하신 주소지의 지리적 기운과 우주의 기운을 융합하는 중입니다. 잠시만 기다려 주세요.</p>
-        </div>
+            <div class="max-w-md mx-auto">
+                <h4 class="text-lg font-bold font-serif-kr text-cream-800" id="loadingStatus">천문 만세력 좌표 조정 중...</h4>
+                <p class="text-xs text-stone-500 mt-2" id="loadingDetails">입력하신 생년월일시에서 127.5도 경도시차 32분을 수치 연산하여 사주 원국(四柱 元局)을 정밀 계산 중입니다.</p>
+            </div>
+            <!-- Progress Status Bar -->
+            <div class="w-full bg-cream-100 h-2 rounded-full overflow-hidden max-w-sm mx-auto">
+                <div id="loadingProgress" class="bg-gradient-to-r from-wood via-fire to-water h-full transition-all duration-700" style="width: 15%"></div>
+            </div>
+        </section>
 
-        <!-- Result Section (Initially Hidden) -->
-        <div id="resultSection" class="hidden space-y-8 animate-fade-in">
+        <!-- Result View -->
+        <section id="resultSection" class="hidden space-y-8">
             
-            <!-- Overall Score Dashboard -->
-            <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-stone-100 dark:border-zinc-800 p-6 md:p-8 text-center relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                    <span class="text-[12rem] font-myeongjo">☯</span>
-                </div>
+            <!-- Overall Score & Matching Header -->
+            <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8 overflow-hidden relative">
+                <!-- Watermark -->
+                <div class="absolute right-0 top-0 text-[180px] font-black text-stone-50 opacity-20 select-none font-serif-kr leading-none pointer-events-none translate-x-12 -translate-y-6">宮合</div>
                 
-                <span class="px-3 py-1 text-xs font-semibold tracking-wider text-green-800 bg-green-100 dark:text-green-200 dark:bg-green-950/50 rounded-full">궁합 매칭 분석 완료</span>
-                <h3 class="font-myeongjo text-2xl md:text-3xl font-extrabold mt-3 mb-6 text-stone-900 dark:text-stone-100">나와 공간의 운명적 어우러짐</h3>
-
-                <div class="flex flex-col md:flex-row items-center justify-around space-y-6 md:space-y-0 py-4">
-                    <!-- Gauge Score -->
-                    <div class="relative w-40 h-40 flex items-center justify-center">
-                        <svg class="w-full h-full transform -rotate-90">
-                            <circle cx="80" cy="80" r="70" class="stroke-stone-100 dark:stroke-zinc-800" stroke-width="12" fill="transparent"></circle>
-                            <circle id="scoreProgress" cx="80" cy="80" r="70" class="stroke-amber-700" stroke-width="12" fill="transparent" stroke-dasharray="440" stroke-dashoffset="440" stroke-linecap="round" class="transition-all duration-1000"></circle>
-                        </svg>
-                        <div class="absolute flex flex-col items-center justify-center">
-                            <span id="scoreText" class="text-4xl md:text-5xl font-myeongjo font-extrabold text-stone-900 dark:text-stone-100">0</span>
-                            <span class="text-[10px] text-stone-500 dark:text-stone-400 mt-1">COMPATIBILITY SCORE</span>
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="bg-stone-100 text-stone-800 text-[10px] font-bold px-2 py-0.5 rounded border border-stone-200 uppercase" id="resGenderAge">남성</span>
+                            <span class="text-xs text-stone-500" id="resBirthDate">1995년 10월 17일 양력 진시생</span>
                         </div>
+                        <h2 class="text-2xl md:text-3xl font-black font-serif-kr text-stone-900" id="resHeaderTitle">신지군 님과 삼청동 터전의 주파수</h2>
+                        <p class="text-sm text-stone-600" id="resAddressText">경기도 수원시 팔달구 효원로 241</p>
                     </div>
 
-                    <!-- Elements Distribution -->
-                    <div class="flex flex-col space-y-3 w-full max-w-xs text-left">
-                        <h4 class="text-xs font-bold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-1">내 사주 속 오행(五行) 분포</h4>
-                        <!-- Wood -->
+                    <!-- Visual Score Dial -->
+                    <div class="flex items-center space-x-4 shrink-0 bg-cream-50 p-4 rounded-2xl border border-cream-200">
+                        <div class="relative w-20 h-20 flex items-center justify-center">
+                            <!-- Circular Ring (Fake SVG representation) -->
+                            <svg class="absolute transform -rotate-90 w-full h-full" viewBox="0 0 36 36">
+                                <path class="text-cream-200" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path id="scoreCircle" class="text-fire transition-all duration-1000 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            </svg>
+                            <span class="text-2xl font-black font-serif-kr text-stone-900" id="resScore">--점</span>
+                        </div>
                         <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span class="font-semibold text-wood dark:text-emerald-400"><i class="fa-solid fa-tree mr-1"></i> 목 (Wood)</span>
-                                <span id="valWood" class="font-semibold">0%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
-                                <div id="barWood" class="bg-wood h-full transition-all duration-1000" style="width: 0%"></div>
-                            </div>
+                            <p class="text-[10px] text-stone-500 font-bold uppercase tracking-wider">풍수명리 종합 궁합</p>
+                            <p class="text-base font-black font-serif-kr text-cream-800" id="resGrade">평가 진행 중</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex border-b border-cream-200 gap-1 overflow-x-auto pb-px">
+                <button onclick="switchTab('tab-saju')" id="btn-tab-saju" class="tab-btn px-4 py-2.5 font-bold text-xs md:text-sm font-serif-kr border-b-2 border-cream-800 text-cream-800 whitespace-nowrap">
+                    <i class="fa-solid fa-yin-yang mr-1"></i> 사주 오행 & 만세력
+                </button>
+                <button onclick="switchTab('tab-fengshui')" id="btn-tab-fengshui" class="tab-btn px-4 py-2.5 font-bold text-xs md:text-sm font-serif-kr border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">
+                    <i class="fa-solid fa-mountain-sun mr-1"></i> 터전 풍수 & 2026 시세
+                </button>
+                <button onclick="switchTab('tab-compatibility')" id="btn-tab-compatibility" class="tab-btn px-4 py-2.5 font-bold text-xs md:text-sm font-serif-kr border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">
+                    <i class="fa-solid fa-house-chimney-window mr-1"></i> 집과의 기운 궁합
+                </button>
+                <button onclick="switchTab('tab-remedies')" id="btn-tab-remedies" class="tab-btn px-4 py-2.5 font-bold text-xs md:text-sm font-serif-kr border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap">
+                    <i class="fa-solid fa-spa mr-1"></i> 개운법 & 인테리어 제안
+                </button>
+            </div>
+
+            <!-- TAB 1: Saju Analysis -->
+            <div id="tab-saju" class="tab-content space-y-6">
+                <!-- Saju Elements Cards -->
+                <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-cream-800 mb-6 flex items-center">
+                        <i class="fa-solid fa-chart-pie text-wood mr-2"></i> 내 사주의 음양오행 에너지 분포
+                    </h3>
+
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6" id="fiveElementsContainer">
+                        <!-- Wood -->
+                        <div class="bg-stone-50 p-3 rounded-xl border border-cream-200 text-center flex flex-col justify-between">
+                            <span class="text-[11px] font-bold text-stone-500 uppercase">목 (木)</span>
+                            <span class="text-xs text-wood font-extrabold my-1 text-2xl" id="element-wood">--</span>
+                            <span class="text-[10px] text-stone-400">성장, 활력, 시작</span>
                         </div>
                         <!-- Fire -->
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span class="font-semibold text-fire dark:text-rose-400"><i class="fa-solid fa-fire mr-1"></i> 화 (Fire)</span>
-                                <span id="valFire" class="font-semibold">0%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
-                                <div id="barFire" class="bg-fire h-full transition-all duration-1000" style="width: 0%"></div>
-                            </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-cream-200 text-center flex flex-col justify-between">
+                            <span class="text-[11px] font-bold text-stone-500 uppercase">화 (火)</span>
+                            <span class="text-xs text-fire font-extrabold my-1 text-2xl" id="element-fire">--</span>
+                            <span class="text-[10px] text-stone-400">열정, 발산, 예의</span>
                         </div>
                         <!-- Earth -->
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span class="font-semibold text-earth dark:text-amber-400"><i class="fa-solid fa-mountain mr-1"></i> 토 (Earth)</span>
-                                <span id="valEarth" class="font-semibold">0%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
-                                <div id="barEarth" class="bg-earth h-full transition-all duration-1000" style="width: 0%"></div>
-                            </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-cream-200 text-center flex flex-col justify-between">
+                            <span class="text-[11px] font-bold text-stone-500 uppercase">토 (土)</span>
+                            <span class="text-xs text-earth font-extrabold my-1 text-2xl" id="element-earth">--</span>
+                            <span class="text-[10px] text-stone-400">중재, 신용, 수용</span>
                         </div>
                         <!-- Metal -->
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span class="font-semibold text-stone-600 dark:text-stone-400"><i class="fa-solid fa-coins mr-1"></i> 금 (Metal)</span>
-                                <span id="valMetal" class="font-semibold">0%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
-                                <div id="barMetal" class="bg-metal h-full transition-all duration-1000" style="width: 0%"></div>
-                            </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-cream-200 text-center flex flex-col justify-between">
+                            <span class="text-[11px] font-bold text-stone-500 uppercase">금 (金)</span>
+                            <span class="text-xs text-metal font-extrabold my-1 text-2xl" id="element-metal">--</span>
+                            <span class="text-[10px] text-stone-400">결단, 의리, 숙살</span>
                         </div>
                         <!-- Water -->
-                        <div>
-                            <div class="flex justify-between text-xs mb-1">
-                                <span class="font-semibold text-water dark:text-sky-400"><i class="fa-solid fa-droplet mr-1"></i> 수 (Water)</span>
-                                <span id="valWater" class="font-semibold">0%</span>
-                            </div>
-                            <div class="w-full bg-stone-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
-                                <div id="barWater" class="bg-water h-full transition-all duration-1000" style="width: 0%"></div>
-                            </div>
+                        <div class="bg-stone-50 p-3 rounded-xl border border-cream-200 text-center flex flex-col justify-between">
+                            <span class="text-[11px] font-bold text-stone-500 uppercase">수 (水)</span>
+                            <span class="text-xs text-water font-extrabold my-1 text-2xl" id="element-water">--</span>
+                            <span class="text-[10px] text-stone-400">지혜, 수렴, 유연</span>
                         </div>
+                    </div>
+
+                    <!-- Detailed Saju Text Box -->
+                    <div class="bg-cream-50 rounded-2xl p-4 border border-cream-100 text-stone-700 text-sm leading-relaxed" id="sajuDetailAnalysis">
+                        사주 분석 결과를 로딩 중입니다...
                     </div>
                 </div>
             </div>
 
-            <!-- Detailed Analysis Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
-                <!-- Left: Saju Analysis -->
-                <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-stone-100 dark:border-zinc-800 p-6 md:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-2 mb-4 border-b border-stone-100 dark:border-zinc-800/50 pb-3">
-                            <i class="fa-solid fa-calendar-days text-amber-700"></i>
-                            <h4 class="font-myeongjo text-lg font-bold">내 사주 팔자 분석</h4>
-                        </div>
-                        <!-- Ganji Board -->
-                        <div class="grid grid-cols-4 gap-2 text-center mb-6">
-                            <div class="bg-stone-50 dark:bg-zinc-800/50 p-2.5 rounded-lg">
-                                <div class="text-[10px] text-stone-400 uppercase">시주 (Hour)</div>
-                                <div id="txtTimeGanji" class="text-lg font-bold font-myeongjo mt-1 text-stone-800 dark:text-stone-100">- -</div>
-                            </div>
-                            <div class="bg-stone-50 dark:bg-zinc-800/50 p-2.5 rounded-lg border-2 border-amber-600/30">
-                                <div class="text-[10px] text-amber-700 font-bold uppercase">일주 (Day)*</div>
-                                <div id="txtDayGanji" class="text-lg font-bold font-myeongjo mt-1 text-stone-800 dark:text-stone-100">- -</div>
-                            </div>
-                            <div class="bg-stone-50 dark:bg-zinc-800/50 p-2.5 rounded-lg">
-                                <div class="text-[10px] text-stone-400 uppercase">월주 (Month)</div>
-                                <div id="txtMonthGanji" class="text-lg font-bold font-myeongjo mt-1 text-stone-800 dark:text-stone-100">- -</div>
-                            </div>
-                            <div class="bg-stone-50 dark:bg-zinc-800/50 p-2.5 rounded-lg">
-                                <div class="text-[10px] text-stone-400 uppercase">연주 (Year)</div>
-                                <div id="txtYearGanji" class="text-lg font-bold font-myeongjo mt-1 text-stone-800 dark:text-stone-100">- -</div>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <span class="text-xs font-semibold bg-stone-100 dark:bg-zinc-800 px-2 py-1 rounded">나를 상징하는 일간</span>
-                            <span id="daymasterBadge" class="text-sm font-bold font-myeongjo ml-2">미정</span>
-                        </div>
-                        <p id="sajuAnalysisText" class="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
-                            분석을 시작하시면 정밀한 오행 기운이 이곳에 나타납니다.
-                        </p>
+            <!-- TAB 2: Feng Shui & Price -->
+            <div id="tab-fengshui" class="tab-content hidden space-y-6">
+                <!-- Land Geomancy Info -->
+                <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-cream-800 mb-4 flex items-center">
+                        <i class="fa-solid fa-mountain text-earth mr-2"></i> 입력 주소지의 형국과 풍수지리적 입지 조건
+                    </h3>
+                    <div class="prose prose-stone max-w-none text-stone-700 text-sm leading-relaxed space-y-4" id="fengShuiGeomancy">
+                        주소지의 지형과 형국을 정밀 탐색 중입니다...
                     </div>
                 </div>
 
-                <!-- Right: Feng Shui & Myth -->
-                <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-stone-100 dark:border-zinc-800 p-6 md:p-8 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-2 mb-4 border-b border-stone-100 dark:border-zinc-800/50 pb-3">
-                            <i class="fa-solid fa-map-location-dot text-amber-700"></i>
-                            <h4 class="font-myeongjo text-lg font-bold">주소지 지명 풍수 및 유래</h4>
-                        </div>
-                        <div class="mb-4">
-                            <span class="text-xs font-semibold bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-200 px-2.5 py-1 rounded-full">
-                                <i class="fa-solid fa-landmark mr-1"></i> 땅의 이름에 담긴 설화와 기운
-                            </span>
-                        </div>
-                        <p id="fengShuiMeaning" class="text-sm leading-relaxed text-stone-600 dark:text-stone-300 mb-4">
-                            지번 혹은 도로명 주소 속에 녹아 있는 고유의 역사적 설화와 오행 배치가 표시됩니다.
-                        </p>
-                        <div class="bg-amber-50/50 dark:bg-zinc-800/30 p-3.5 rounded-lg border border-amber-100/30">
-                            <div class="text-xs font-bold text-amber-800 dark:text-amber-400 mb-1">토지 오행 속성</div>
-                            <p id="fengShuiEnergy" class="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-                                분석 완료 시 생성됩니다.
-                            </p>
-                        </div>
+                <!-- Lore & Myth -->
+                <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-cream-800 mb-4 flex items-center">
+                        <i class="fa-solid fa-scroll text-stone-600 mr-2"></i> 지명에 얽힌 설화 및 땅의 역사적 기운
+                    </h3>
+                    <div class="prose prose-stone max-w-none text-stone-700 text-sm leading-relaxed space-y-4" id="addressLore">
+                        해당 지명의 고유 설화와 유래를 탐색 중입니다...
                     </div>
                 </div>
 
-            </div>
+                <!-- Real Estate Value as of 2026.06.30 -->
+                <div class="bg-gradient-to-br from-white to-cream-50 rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <div class="flex items-center justify-between border-b pb-4 border-cream-200 mb-6">
+                        <h3 class="text-base font-bold font-serif-kr text-cream-800 flex items-center">
+                            <i class="fa-solid fa-coins text-yellow-600 mr-2"></i> 2026.06.30 기준 부동산 시세 정보
+                        </h3>
+                        <span class="text-[10px] bg-amber-100 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-semibold">Gemini 실시간 조회 가격</span>
+                    </div>
 
-            <!-- Deep Compatibility Description -->
-            <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-stone-100 dark:border-zinc-800 p-6 md:p-8">
-                <div class="flex items-center space-x-2 mb-4 border-b border-stone-100 dark:border-zinc-800/50 pb-3">
-                    <i class="fa-solid fa-circle-nodes text-amber-700"></i>
-                    <h4 class="font-myeongjo text-xl font-bold">사주 x 집 공간의 상생 상극 상세 풀이</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="priceContainer">
+                        <!-- Trading Price -->
+                        <div class="bg-white p-5 rounded-2xl border border-cream-100 shadow-sm flex items-center justify-between">
+                            <div class="space-y-1">
+                                <span class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">일반 매매가 (추정)</span>
+                                <p class="text-lg font-black text-stone-800 font-serif-kr" id="priceTrade">-- 억 원 선</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600">
+                                <i class="fa-solid fa-house-circle-check"></i>
+                            </div>
+                        </div>
+
+                        <!-- Rent Price (Jeonse / Wolse) -->
+                        <div class="bg-white p-5 rounded-2xl border border-cream-100 shadow-sm flex items-center justify-between">
+                            <div class="space-y-1">
+                                <span class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">전세 및 월세 (추정)</span>
+                                <p class="text-sm font-semibold text-stone-800" id="priceRent">-- 선</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-stone-400 mt-4 leading-normal">
+                        * 본 시세는 2026년 6월 30일 시점의 주변 거래 추이 및 해당 번지수 주변 연립/아파트/단독 실거래가를 기반으로 산출된 추정치이며, 동 및 향, 그리고 리모델링 상태에 따라 상이할 수 있습니다.
+                    </p>
                 </div>
-                <p id="compatibilityExplanation" class="text-sm leading-relaxed text-stone-600 dark:text-stone-300">
-                    당신의 사주 기운과 이 집이 위치한 공간의 풍수 에너지가 상호작용하는 원리를 명리·풍수학 관점에서 상세하게 밝힙니다.
-                </p>
             </div>
 
-            <!-- Actions list -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
+            <!-- TAB 3: Compatibility Detailed -->
+            <div id="tab-compatibility" class="tab-content hidden space-y-6">
+                <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-cream-800 mb-6 flex items-center">
+                        <i class="fa-solid fa-heart-circle-bolt text-fire mr-2"></i> 나와 이 공간의 일치율 & 에너지 융합 분석
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Score Factor 1 -->
+                        <div class="bg-cream-50 p-4 rounded-2xl border border-cream-100 text-center">
+                            <span class="text-[10px] font-bold text-stone-400 block mb-1">천간과 터의 결합</span>
+                            <div class="text-lg font-black font-serif-kr text-stone-800" id="factorTian">우수</div>
+                            <p class="text-[10px] text-stone-500 mt-1">정신적 안정도 및 직관력 상승</p>
+                        </div>
+                        <!-- Score Factor 2 -->
+                        <div class="bg-cream-50 p-4 rounded-2xl border border-cream-100 text-center">
+                            <span class="text-[10px] font-bold text-stone-400 block mb-1">지지와 지맥의 보완</span>
+                            <div class="text-lg font-black font-serif-kr text-stone-800" id="factorDi">조화로움</div>
+                            <p class="text-[10px] text-stone-500 mt-1">현실적 재물운 및 신체 에너지 충전</p>
+                        </div>
+                        <!-- Score Factor 3 -->
+                        <div class="bg-cream-50 p-4 rounded-2xl border border-cream-100 text-center">
+                            <span class="text-[10px] font-bold text-stone-400 block mb-1">풍수지리 조화 (방향/층)</span>
+                            <div class="text-lg font-black font-serif-kr text-stone-800" id="factorFeng">상생</div>
+                            <p class="text-[10px] text-stone-500 mt-1">방위와 높낮이에 따른 기의 순환</p>
+                        </div>
+                    </div>
+
+                    <!-- Detailed compatibility text -->
+                    <div class="prose prose-stone max-w-none text-stone-700 text-sm leading-relaxed space-y-6" id="compatibilityDeepAnalysis">
+                        상세 궁합 기운을 분석하는 중입니다...
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: Remedies & Design -->
+            <div id="tab-remedies" class="tab-content hidden space-y-6">
                 <!-- Harmful Actions -->
-                <div class="bg-rose-50/50 dark:bg-rose-950/10 rounded-2xl border border-rose-100 dark:border-rose-900/30 p-6 md:p-8">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fa-solid fa-ban text-rose-600 dark:text-rose-400 text-lg"></i>
-                        <h4 class="font-myeongjo text-lg font-bold text-rose-900 dark:text-rose-300">기운을 해할 수 있는 금기 행동</h4>
-                    </div>
-                    <ul id="harmfulActions" class="space-y-2.5 text-sm text-stone-600 dark:text-stone-300">
-                        <!-- Items populated via JS -->
+                <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-red-700 mb-6 flex items-center">
+                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> 피해야 할 액운 유발 행위 (주의사항)
+                    </h3>
+                    <ul class="space-y-4 text-sm text-stone-700" id="harmfulBehaviorsList">
+                        <!-- Loaded dynamically -->
                     </ul>
                 </div>
 
-                <!-- Complementary Actions -->
-                <div class="bg-emerald-50/50 dark:bg-emerald-950/10 rounded-2xl border border-emerald-100 dark:border-emerald-900/30 p-6 md:p-8">
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fa-solid fa-circle-plus text-emerald-600 dark:text-emerald-400 text-lg"></i>
-                        <h4 class="font-myeongjo text-lg font-bold text-emerald-900 dark:text-emerald-300">기운을 보완하는 비보(裨補) 행동</h4>
-                    </div>
-                    <ul id="complementaryActions" class="space-y-2.5 text-sm text-stone-600 dark:text-stone-300">
-                        <!-- Items populated via JS -->
+                <!-- Boosting Actions -->
+                <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-wood mb-6 flex items-center">
+                        <i class="fa-solid fa-shield-halved mr-2"></i> 기운을 극대화하는 개운(開運) 수칙
+                    </h3>
+                    <ul class="space-y-4 text-sm text-stone-700" id="boostingBehaviorsList">
+                        <!-- Loaded dynamically -->
                     </ul>
                 </div>
 
-            </div>
-
-            <!-- Feng Shui Interior Recommendations -->
-            <div class="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-stone-100 dark:border-zinc-800 p-6 md:p-8">
-                <div class="flex items-center space-x-2 mb-4 border-b border-stone-100 dark:border-zinc-800/50 pb-3">
-                    <i class="fa-solid fa-couch text-amber-700"></i>
-                    <h4 class="font-myeongjo text-lg font-bold">오행 맞춤형 풍수 인테리어 제안</h4>
-                </div>
-                <div id="interiorSuggestions" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Dynamic lists of interior suggestions -->
-                </div>
-            </div>
-
-            <!-- Real Estate Estimates -->
-            <div class="bg-stone-100 dark:bg-zinc-950/60 rounded-2xl border border-stone-200 dark:border-zinc-800 p-6 md:p-8">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                        <div class="flex items-center space-x-2 mb-1">
-                            <i class="fa-solid fa-building-circle-check text-stone-600 dark:text-stone-400"></i>
-                            <h4 class="font-myeongjo text-base font-bold text-stone-800 dark:text-stone-200">집값 추정 정보 (2026.06.30 기준)</h4>
-                        </div>
-                        <p class="text-xs text-stone-500 dark:text-stone-400">풍수 인테리어와 더불어 공간의 가치를 판단하기 위한 매매 및 전월세 시세 가이드라인입니다.</p>
-                    </div>
-                    <span class="px-2.5 py-0.5 text-[11px] font-bold text-stone-700 bg-stone-200 dark:text-stone-300 dark:bg-zinc-800 rounded">추정 가치 기준일: 2026.06.30</span>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                    <div class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-stone-200 dark:border-zinc-800 text-center shadow-sm">
-                        <div class="text-xs font-bold text-stone-400 uppercase">예상 매매 시세</div>
-                        <p id="estateTrading" class="text-lg font-bold text-amber-800 dark:text-amber-500 mt-1">- -</p>
-                    </div>
-                    <div class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-stone-200 dark:border-zinc-800 text-center shadow-sm">
-                        <div class="text-xs font-bold text-stone-400 uppercase">예상 전세 시세</div>
-                        <p id="estateJeonse" class="text-lg font-bold text-stone-800 dark:text-stone-200 mt-1">- -</p>
-                    </div>
-                    <div class="bg-white dark:bg-zinc-900 p-4 rounded-xl border border-stone-200 dark:border-zinc-800 text-center shadow-sm">
-                        <div class="text-xs font-bold text-stone-400 uppercase">예상 월세 보증금/차임</div>
-                        <p id="estateWolse" class="text-lg font-bold text-stone-800 dark:text-stone-200 mt-1">- -</p>
+                <!-- Feng Shui Interior Design -->
+                <div class="bg-gradient-to-br from-cream-50 to-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
+                    <h3 class="text-base font-bold font-serif-kr text-cream-800 mb-6 flex items-center">
+                        <i class="fa-solid fa-bed mr-2 text-earth"></i> 공간 오행 보완을 위한 맞춤형 풍수 인테리어
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="interiorCards">
+                        <!-- Loaded dynamically -->
                     </div>
                 </div>
             </div>
 
-        </div>
+            <!-- Shared Actions -->
+            <div class="flex flex-col md:flex-row gap-4 pt-4">
+                <button onclick="window.print()" class="flex-1 bg-cream-100 text-cream-800 hover:bg-cream-200 transition-colors py-3.5 rounded-xl text-sm font-bold font-serif-kr flex items-center justify-center space-x-2 border border-cream-200">
+                    <i class="fa-solid fa-print"></i>
+                    <span>명리 궁합 리포트 인쇄 / PDF 저장</span>
+                </button>
+                <button onclick="resetApp()" class="flex-1 bg-stone-100 text-stone-600 hover:bg-stone-200 transition-colors py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-arrow-rotate-left"></i>
+                    <span>처음으로 돌아가기</span>
+                </button>
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-stone-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 py-6 transition-colors mt-auto text-center">
-        <p class="text-xs text-stone-400 dark:text-zinc-500">© 2026 운명과 공간 (Destiny & Space). All Rights Reserved.</p>
+    <!-- Global Footer -->
+    <footer class="border-t border-cream-200 bg-white/50 py-12 text-center text-xs text-stone-500 mt-16">
+        <div class="max-w-4xl mx-auto px-4 space-y-4">
+            <div class="flex justify-center space-x-2 text-cream-800 font-serif-kr text-sm font-bold">
+                <span>木</span><span>·</span><span>火</span><span>·</span><span>土</span><span>·</span><span>金</span><span>·</span><span>水</span>
+            </div>
+            <p>© 2026 命理空間 (Myungri-Space). All Rights Reserved.</p>
+            <p class="max-w-md mx-auto text-[10px] text-stone-400">
+                본 공간명리 연산 결과는 명리학적 음양오행 및 지형 풍수의 형국에 기초한 우주적 공명을 해석하는 학술 및 인테리어 제안 도구입니다. 투자의 책임이나 완벽한 길흉화복 판단은 개인의 주체적 실천과 환경적 결단에 속합니다.
+            </p>
+        </div>
     </footer>
 
-    <!-- Local logic script -->
+    <!-- App Logic with Gemini API -->
     <script>
-        const apiKey = ""; // Runtime automatically injected by the playground
+        const apiKey = ""; // API key injection space
 
-        // Light/Dark Theme Switcher
-        const themeToggle = document.getElementById('themeToggle');
-        
-        // Detect system theme preference
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        // Tabs switching mechanism
+        function switchTab(tabId) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            // Show active tab
+            document.getElementById(tabId).classList.remove('hidden');
 
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-        });
-
-        // Custom Modal handling
-        function showAlert(title, message) {
-            document.getElementById('alertTitle').innerText = title;
-            document.getElementById('alertMessage').innerText = message;
-            document.getElementById('customAlert').classList.remove('hidden');
-        }
-
-        function closeAlert() {
-            document.getElementById('customAlert').classList.add('hidden');
-        }
-
-        // Deep algorithm for local mock calculations if API fails or is not connected
-        function calculateLocalSaju(birthDate, birthTime) {
-            // Very basic five elements generator based on year/month/day/time hash
-            const combinedString = birthDate + birthTime;
-            let hash = 0;
-            for (let i = 0; i < combinedString.length; i++) {
-                hash = combinedString.charCodeAt(i) + ((hash << 5) - hash);
+            // Reset tab styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn px-4 py-2.5 font-bold text-xs md:text-sm font-serif-kr border-b-2 border-transparent text-stone-500 hover:text-stone-800 whitespace-nowrap';
+            });
+            // Highlight active button
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = 'tab-btn px-4 py-2.5 font-bold text-xs md:text-sm font-serif-kr border-b-2 border-cream-800 text-cream-800 whitespace-nowrap';
             }
-            const absHash = Math.abs(hash);
-            
-            // Generate pseudo-random percentages summing to 100
-            const wood = (absHash % 25) + 5;
-            const fire = ((absHash >> 3) % 25) + 5;
-            const earth = ((absHash >> 6) % 20) + 10;
-            const metal = ((absHash >> 9) % 20) + 5;
-            const water = 100 - (wood + fire + earth + metal);
+        }
 
-            // Determine daymaster
-            const daymasterOptions = ["갑목 (甲木)", "을목 (乙木)", "병화 (丙火)", "정화 (丁火)", "무토 (戊土)", "기토 (己土)", "경금 (庚金)", "신금 (辛金)", "임수 (壬水)", "계수 (癸水)"];
-            const daymaster = daymasterOptions[absHash % daymasterOptions.length];
+        // Reset the form
+        function resetApp() {
+            document.getElementById('resultSection').classList.add('hidden');
+            document.getElementById('compatibilityForm').reset();
+            document.getElementById('compatibilityForm').scrollIntoView({ behavior: 'smooth' });
+        }
 
-            const stems = ["갑", "을", "병", "정", "무", "기", "경", "신", "임", "계"];
-            const branches = ["자", "축", "인", "묘", "진", "사", "오", "미", "신", "유", "술", "해"];
-
-            const yearGanji = stems[absHash % 10] + branches[absHash % 12];
-            const monthGanji = stems[(absHash + 2) % 10] + branches[(absHash + 4) % 12];
-            const dayGanji = stems[(absHash + 5) % 10] + branches[(absHash + 6) % 12];
-            const timeGanji = stems[(absHash + 8) % 10] + branches[(absHash + 10) % 12];
-
-            return {
-                yearGanji, monthGanji, dayGanji, timeGanji,
-                daymaster,
-                elements: { wood, fire, earth, metal, water }
+        // Custom Error Message Modal generator
+        function showError(message) {
+            const errModal = document.createElement('div');
+            errModal.className = "fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4";
+            errModal.innerHTML = `
+                <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center border border-cream-200 shadow-xl space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-red-100 text-red-600 flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-cream-800 font-serif-kr">기운 융합 연산 오류</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">${message}</p>
+                    <button id="closeErrBtn" class="w-full bg-cream-800 text-white font-bold py-2 rounded-xl text-sm">확인</button>
+                </div>
+            `;
+            document.body.appendChild(errModal);
+            document.getElementById('closeErrBtn').onclick = () => {
+                errModal.remove();
             };
         }
 
-        // Exponential backoff API fetch helper
-        async function fetchWithRetry(url, options, retries = 5, delay = 1000) {
+        // Saju formulation logic (Approximate solar calculation for local presentation)
+        function approximateSajuElements(birthDate, birthTime) {
+            // Static calculation based on date values hash just for visual representation before rich AI response overrides it.
+            const total = Array.from(birthDate + birthTime).reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            const w = (total % 5) + 1;
+            const f = ((total + 7) % 5) + 1;
+            const e = ((total + 13) % 4) + 1;
+            const m = ((total + 19) % 3) + 1;
+            const wa = 8 - (w + f + e + m);
+
+            return { wood: w, fire: f, earth: e, metal: m, water: wa > 0 ? wa : 1 };
+        }
+
+        // Fetching and parsing data using Gemini 2.5 API with exponential backoff and Google Search grounding
+        async function runGeminiAnalysis(payload, retryCount = 0) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
             try {
-                const response = await fetch(url, options);
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
                 if (!response.ok) {
-                    throw new Error(`HTTP status ${response.status}`);
+                    throw new Error(`API response error ${response.status}`);
                 }
-                return await response.json();
+
+                const data = await response.json();
+                return data;
             } catch (error) {
-                if (retries > 0) {
+                if (retryCount < 5) {
+                    const delay = Math.pow(2, retryCount) * 1000;
                     await new Promise(resolve => setTimeout(resolve, delay));
-                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                    return runGeminiAnalysis(payload, retryCount + 1);
+                } else {
+                    throw error;
                 }
-                throw error;
             }
         }
 
-        // Form submission & Gemini API Bridge
-        document.getElementById('analysisForm').addEventListener('submit', async function(e) {
+        // Main process on form submission
+        document.getElementById('compatibilityForm').onsubmit = async function(e) {
             e.preventDefault();
 
+            // Read variables
+            const name = document.getElementById('userName').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const calendarType = document.querySelector('input[name="calendarType"]:checked').value;
             const birthDate = document.getElementById('birthDate').value;
             const birthTime = document.getElementById('birthTime').value;
-            const calendarType = document.getElementById('calendarType').value;
-            const gender = document.getElementById('gender').value;
-            const address = document.getElementById('address').value;
-            const houseDirection = document.getElementById('houseDirection').value;
-            const houseFloor = document.getElementById('houseFloor').value;
-            const residents = document.getElementById('residents').value;
+            const address = document.getElementById('homeAddress').value;
+            const direction = document.getElementById('homeDirection').value;
+            const floor = document.getElementById('homeFloor').value;
+            const residents = document.getElementById('homeResidents').value;
 
-            if (!birthDate || !birthTime || !address) {
-                showAlert("오류", "필수 입력사항을 모두 입력해 주세요.");
-                return;
-            }
-
-            // Show Loading screen and hide current layout
-            document.getElementById('loadingScreen').classList.remove('hidden');
+            // Display loading state
+            document.getElementById('loadingSection').classList.remove('hidden');
             document.getElementById('resultSection').classList.add('hidden');
+            document.getElementById('loadingSection').scrollIntoView({ behavior: 'smooth' });
 
-            // Set up prompt for Gemini
+            // Loading steps animation simulating celestial alignment
+            const statusTexts = [
+                { prg: 20, t: "천문 만세력 좌표 조정 중...", d: "동경 135도 표준시와 실제 거주지 동경 127.5도의 32분 공간 시차 교정 중..." },
+                { prg: 40, t: "사주 오행 원국 및 절입 시간 계산 중...", d: `${birthDate} ${birthTime} 기준 24절기 에너지 패턴 해독 중...` },
+                { prg: 65, t: "주소지 지맥 및 역사 설화 실시간 추적 중...", d: `'${address}' 의 풍수지리적 형국과 지역 설화 정보를 국토지리 정보망에서 검색 중...` },
+                { prg: 85, t: "2026.06.30 기준 주변 시세 및 궁합 결합 중...", d: "해당 번지수의 최근 실거래 및 호재 기운 데이터를 수집하여 오행 연계성 최종 판단 중..." }
+            ];
+
+            let step = 0;
+            const interval = setInterval(() => {
+                if (step < statusTexts.length) {
+                    document.getElementById('loadingProgress').style.width = statusTexts[step].prg + "%";
+                    document.getElementById('loadingStatus').textContent = statusTexts[step].t;
+                    document.getElementById('loadingDetails').textContent = statusTexts[step].d;
+                    step++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 1200);
+
+            // Construct Gemini Grounded Prompt with exact instruction format
             const prompt = `
-            사용자 사주 및 주거지 정보 분석을 수행하라.
-            
-            입력 데이터:
-            - 생년월일: ${birthDate} (${calendarType === 'solar' ? '양력' : '음력'})
-            - 태어난 시각: ${birthTime} (서울 표준시 기준 +30분 보정이 필요할 시 자동으로 보정하여 기산할 것)
-            - 성별: ${gender === 'male' ? '남성' : '여성'}
-            - 살고 있는 주소: ${address}
-            - 집의 방향: ${houseDirection ? houseDirection : '정보 미입력'}
-            - 거주하는 층: ${houseFloor ? houseFloor : '정보 미입력'}
-            - 거주하는 인원수: ${residents ? residents : '정보 미입력'}
+            너는 동양의 사주명리학과 풍수지리설을 완벽하게 통달한 수십 년 경력의 대선사(大禪師)이자 지리학자야.
+            아래 입력된 개인의 사주 기본 정보와 거주하는 집의 주소지 풍수/물리적 변수를 심층 대조하여, 차원이 다른 공간명리학적 궁합 분석 리포트를 작성해 주어라.
 
-            [분석 필수 요구사항]:
-            1. 정확한 만세력 데이터 적용: 입력된 생년월일을 기준으로 천간지지(연주, 월주, 일주, 시주)를 계산하라.
-            2. 내 사주 팔자 분석: 일간(Daymaster)과 목, 화, 토, 금, 수 오행의 분포 백분율(합산 100%)을 도출하고 사주 기운의 강약을 간단히 설명하라.
-            3. 주소지 풍수 및 설화 분석: 입력한 지명(동, 구, 시 등)의 한자적 의미, 전해 내려오는 설화나 역사적 배경, 그리고 지리가 가진 기운(산, 물, 바람 등)을 설명하라.
-            4. 사주 x 주소의 공간 궁합: 일간의 기운과 주소지의 풍수 기운(그리고 선택된 방향 및 층의 기운)이 조화를 이루는지, 상극을 형성하는지 구체적이고 전문적인 명리학적 용어를 활용하여 기원적 조화를 설명하고, 0~100점 사이의 궁합 점수를 산정하라.
-            5. 해를 가할 수 있는 행동 (3~5가지) 및 보완하는 비보(裨補) 행동 (3~5가지)을 구체적으로 도출하라.
-            6. 풍수 인테리어 추천 사항: 오행의 균형을 맞추기 위한 가구 배치, 추천 색상, 오브제 등을 4가지 이상 상세히 제안하라.
-            7. 부동산 추정 정보 (2026.06.30 기준): 해당 주소지의 입지 및 부동산 트렌드를 기반으로 매매가, 전세가, 월세 보증금 및 차임의 2026.06.30 기준 현실적인 예상 거래가 범위를 도출하라.
+            반드시 실제 주소 '${address}'의 실제 지리적 특성, 명당 여부, 그리고 지명 유래(설화)를 구체적으로 검색해서 기술할 것.
+            또한, 반드시 2026년 6월 30일 기준의 해당 지역 실거래가 동향 및 추정 시세(매매, 전월세) 정보를 최신으로 검색하여 정확하게 제공해야 함.
 
-            [출력 포맷]: 반드시 명시된 JSON 포맷을 빈 공간 없이 준수하여 반환하라. Markdown 형식의 감싸는 기호(\`\`\`json) 없이 오직 JSON 자체만 반환할 것.
+            [입력 정보]
+            - 대상자 이름: ${name} (${gender})
+            - 생년월일시: ${birthDate} ${birthTime} (${calendarType})
+            - 거주지 주소: ${address}
+            - 집의 방향: ${direction}
+            - 거주 층수: ${floor}
+            - 거주 인원: ${residents}
+
+            [답변 형식 수칙]
+            반드시 아래 명시된 정확한 JSON 구조로만 반환하라. 절대 JSON 마크다운 외의 설명이나 불필요한 서두를 붙이지 말 것.
+            JSON 필드가 비어있으면 안 된다.
+
+            \`\`\`json
+            {
+              "score": 0~100 사이의 정수 (사주와 주소의 조화 점수),
+              "grade": "한자 성어가 혼용된 아름다운 궁합 등급 한 줄 (예: 金水雙淸 (금수쌍청) - 조화롭고 부유한 터전)",
+              "fiveElements": {
+                "wood": 목의 개수 (0~8 사이 정수),
+                "fire": 화의 개수 (0~8 사이 정수),
+                "earth": 토의 개수 (0~8 사이 정수),
+                "metal": 금의 개수 (0~8 사이 정수),
+                "water": 수의 개수 (0~8 사이 정수)
+              },
+              "sajuDetail": "대상자의 정확한 만세력 시차 보정 결과(예: 한국시 기준 32분 지연을 보정하여 무슨 시로 정밀 판정되었는지)를 명확히 짚어주고, 오행 중 어떤 기운이 강하거나 부족한지 친절하면서 신뢰를 주는 명리적 말투의 분석 글",
+              "geomancy": "실제 해당 주소지의 산맥 흐름, 배산임수 여부, 지형의 풍수지리적 이점(예: 우백호, 좌청룡 등)과 땅의 실질적 기운 형국 설명",
+              "lore": "해당 동네 지명의 역사적 유래, 한자 표기의 뜻풀이, 그리고 전해 내려오는 정겨운 전설이나 설화 정보 상세 설명",
+              "prices": {
+                "trade": "2026.06.30 기준 주변 매매 시세 범위 (예: 8억 5천만 원 ~ 9억 2천만 원)",
+                "rent": "2026.06.30 기준 주변 전세/월세 시세 범위 (예: 전세 5억 원 선 / 월세 보증금 1억에 월 180만 원 선)"
+              },
+              "factors": {
+                "tian": "천간 공명도에 대한 평가 단어 (예: 극상, 우수, 평이, 대길)",
+                "di": "지지 공명도 평가 단어 (예: 상생, 합이 맞음, 다소 충돌, 보완적)",
+                "feng": "방향 및 거주조건 평가 단어 (예: 대길, 무난, 비보 필요)"
+              },
+              "compatibilityDeep": "왜 이 사주가 이 집의 풍수 기운과 잘 맞는지(혹은 부딪히는지) 오행의 상생상극 메커니즘을 들어 구체적인 이유 서술. (예: 사주의 부족한 '화(火)' 기운을 이 주소지의 '남향'과 지명의 '볕 양(陽)' 기운이 어떻게 따스하게 메워주는지 등)",
+              "harmfulBehaviors": [
+                "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 1 (상세 설명 포함)",
+                "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 2",
+                "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 3",
+                "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 4 (필요시)"
+              ],
+              "boostingBehaviors": [
+                "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 1 (상세 설명 포함)",
+                "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 2",
+                "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 3",
+                "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 4 (필요시)"
+              ],
+              "interiorTips": [
+                {
+                  "room": "침실 / 거실 / 현관 중 1",
+                  "item": "풍수 소품명 (예: 황금색 화병, 미니 수족관, 식물 화분)",
+                  "reason": "오행 보완을 위해 어디에 배치해야 하는지 구체적인 원리 설명"
+                },
+                {
+                  "room": "침실 / 거실 / 현관 중 1",
+                  "item": "풍수 소품명",
+                  "reason": "배치 원리 설명"
+                },
+                {
+                  "room": "침실 / 거실 / 현관 중 1",
+                  "item": "풍수 소품명",
+                  "reason": "배치 원리 설명"
+                }
+              ]
+            }
+            \`\`\`
             `;
-
-            const systemPrompt = `당신은 대한민국 최고의 정통 명리학자이자 현대 입지 풍수지리학 전문가입니다. 학술적으로 정확하고 한자 풀이가 명확하며, 신뢰감을 주는 고풍스럽고 명료한 한국어 어조로 답변하십시오. JSON 스키마를 완벽히 준수해야 합니다.`;
 
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-                generationConfig: {
-                    responseMimeType: "application/json",
-                    responseSchema: {
-                        type: "OBJECT",
-                        properties: {
-                            saju: {
-                                type: "OBJECT",
-                                properties: {
-                                    yearGanji: { type: "STRING" },
-                                    monthGanji: { type: "STRING" },
-                                    dayGanji: { type: "STRING" },
-                                    timeGanji: { type: "STRING" },
-                                    daymaster: { type: "STRING" },
-                                    fiveElements: {
-                                        type: "OBJECT",
-                                        properties: {
-                                            wood: { type: "INTEGER" },
-                                            fire: { type: "INTEGER" },
-                                            earth: { type: "INTEGER" },
-                                            metal: { type: "INTEGER" },
-                                            water: { type: "INTEGER" }
-                                        },
-                                        required: ["wood", "fire", "earth", "metal", "water"]
-                                    },
-                                    analysisText: { type: "STRING" }
-                                },
-                                required: ["yearGanji", "monthGanji", "dayGanji", "timeGanji", "daymaster", "fiveElements", "analysisText"]
-                            },
-                            fengShui: {
-                                type: "OBJECT",
-                                properties: {
-                                    meaning: { type: "STRING" },
-                                    energy: { type: "STRING" }
-                                },
-                                required: ["meaning", "energy"]
-                            },
-                            compatibility: {
-                                type: "OBJECT",
-                                properties: {
-                                    score: { type: "INTEGER" },
-                                    explanation: { type: "STRING" }
-                                },
-                                required: ["score", "explanation"]
-                            },
-                            actions: {
-                                type: "OBJECT",
-                                properties: {
-                                    harmful: { type: "ARRAY", items: { type: "STRING" } },
-                                    complementary: { type: "ARRAY", items: { type: "STRING" } }
-                                },
-                                required: ["harmful", "complementary"]
-                            },
-                            interiorSuggestions: { type: "ARRAY", items: { type: "STRING" } },
-                            marketValue: {
-                                type: "OBJECT",
-                                properties: {
-                                    trading: { type: "STRING" },
-                                    jeonse: { type: "STRING" },
-                                    wolse: { type: "STRING" }
-                                },
-                                required: ["trading", "jeonse", "wolse"]
-                            }
-                        },
-                        required: ["saju", "fengShui", "compatibility", "actions", "interiorSuggestions", "marketValue"]
-                    }
-                }
+                tools: [{ "google_search": {} }] // Enable grounding for lore and property prices
             };
 
             try {
-                let parsedData;
+                const apiResult = await runGeminiAnalysis(payload);
                 
-                if (apiKey) {
-                    const response = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const resultText = response.candidates?.[0]?.content?.parts?.[0]?.text;
-                    parsedData = JSON.parse(resultText);
-                } else {
-                    // Failover logic if no API key is available (offline mock generator with deterministic seed)
-                    const localSaju = calculateLocalSaju(birthDate, birthTime);
-                    parsedData = {
-                        saju: {
-                            yearGanji: localSaju.yearGanji,
-                            monthGanji: localSaju.monthGanji,
-                            dayGanji: localSaju.dayGanji,
-                            timeGanji: localSaju.timeGanji,
-                            daymaster: localSaju.daymaster,
-                            fiveElements: localSaju.elements,
-                            analysisText: `${localSaju.daymaster}의 기운을 강하게 띤 사주로, 일간의 음양 기운이 주위 환경에 큰 영향을 받습니다. 사주 내 오행이 비교적 뚜렷하여 균형을 맞출 비보책이 중요합니다.`
-                        },
-                        fengShui: {
-                            meaning: `입력하신 주소 '${address}'는 지리적으로 전통적인 명당의 맥을 잇고 있는 지명입니다. 물이 굽이쳐 돌거나 산의 정기가 모이는 기운이 있으며, 옛 문헌에 따르면 평안과 장수를 기원하는 기도가 성했던 터로 기록되어 있습니다.`,
-                            energy: `지명의 음양이 비교적 조화를 이루고 있으며, 지리적으로 수(水)와 토(土)의 성질이 강하게 머물고 있습니다.`
-                        },
-                        compatibility: {
-                            score: 85,
-                            explanation: `당신의 타고난 일간 ${localSaju.daymaster}의 기운과 주거지 '${address}'가 가지고 있는 자연 풍수 기운은 서로 상생하는 궤적을 그리며 조화를 이룹니다. 특히 부족한 기운을 주거 공간이 채워주는 형국입니다.`
-                        },
-                        actions: {
-                            harmful: [
-                                "현관문을 항상 지저분하게 방치하거나 큰 짐을 쌓아두는 것 (재물운의 통로 차단)",
-                                "침실 헤드를 차가운 북쪽이나 창문 정면으로 위치시키는 것 (정신적 불안 유도)",
-                                "서재나 거실에 가시가 돋친 다육식물이나 어둡고 음침한 그림을 걸어두는 것"
-                            ],
-                            complementary: [
-                                "현관 정면에 맑고 깨끗한 소리가 나는 황동 종(풍경)을 걸어둘 것 (긍정적 에너지 유도)",
-                                "침실 조명을 아늑한 전구색 전등으로 대체하고 매일 10분 이상 환기할 것",
-                                "집안의 남동쪽에 파릇파릇한 녹색 식물 화분을 배치하여 목(木)의 성장을 유도할 것"
-                            ]
-                        },
-                        interiorSuggestions: [
-                            "거실 동쪽에 미니 반려 식물이나 청량한 풍경화를 걸어 목기를 보완하세요.",
-                            "서재에는 차분한 베이지색 패브릭 소품을 사용하여 집안의 무거운 토기를 중화시킬 수 있습니다.",
-                            "침실 조명은 간접 전등을 활용해 아늑한 화기를 유지하도록 배치하십시오.",
-                            "현관 입구에는 작은 거울을 배치해 집안으로 들어오는 사기를 즉각 반사해 밀어내도록 하세요."
-                        ],
-                        marketValue: {
-                            trading: "7억 5천만 원 ~ 8억 2천만 원 상당 (단지별 상이)",
-                            jeonse: "4억 8천만 원 ~ 5억 3천만 원 상당",
-                            wolse: "보증금 1억 원 / 월차임 150만 원 선"
-                        }
-                    };
+                // Get text from candidate
+                const resultText = apiResult.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (!resultText) {
+                    throw new Error("결과 텍스트를 생성하지 못했습니다. 다시 시도해 주세요.");
                 }
 
-                // Populate UI Elements with analyzed data
-                updateUI(parsedData);
+                // Parse JSON from text blocks
+                const jsonMatch = resultText.match(/```json\s*([\s\S]*?)\s*```/) || resultText.match(/({[\s\S]*})/);
+                if (!jsonMatch) {
+                    throw new Error("결과 구조를 올바르게 파싱하지 못했습니다.");
+                }
 
-            } catch (error) {
-                console.error(error);
-                showAlert("오류 발생", "API 분석 호출에 실패하여 기본 만세력 연산 장치를 통해 결과를 대체합니다.");
-                
-                // Absolute safety fallback
-                const fallbackDate = calculateLocalSaju(birthDate, birthTime);
-                const mockResult = {
-                    saju: {
-                        yearGanji: fallbackDate.yearGanji,
-                        monthGanji: fallbackDate.monthGanji,
-                        dayGanji: fallbackDate.dayGanji,
-                        timeGanji: fallbackDate.timeGanji,
-                        daymaster: fallbackDate.daymaster,
-                        fiveElements: fallbackDate.elements,
-                        analysisText: "기본 만세력 대조 결과, 균형 잡힌 기운을 바탕으로 하고 있습니다."
-                    },
-                    fengShui: {
-                        meaning: "입력된 주소는 전통적 배산임수의 풍수 조건에 알맞으며, 역사적으로 유구한 지명적 의의를 내포하고 있습니다.",
-                        energy: "목(木)과 토(土)가 교차하여 흐르는 강건한 풍수 터입니다."
-                    },
-                    compatibility: {
-                        score: 79,
-                        explanation: "지리의 강한 맥과 사주의 주체적 성향이 부딪히지 않고 부드럽게 감싸 안는 궁합으로 분석됩니다."
-                    },
-                    actions: {
-                        harmful: [
-                            "부엌을 자주 어지럽혀 물의 정기를 흐리는 행위",
-                            "남쪽 창을 가려 햇빛을 완벽하게 차단해 음기가 쌓이게 하는 행위",
-                            "침대 머리를 화장실 벽면에 밀착시키는 행위"
-                        ],
-                        complementary: [
-                            "현관 바닥을 매일 젖은 걸레로 닦아 먼지를 제거하는 비보책",
-                            "실내에 가죽이나 황동으로 된 무거운 소품을 두어 공간을 안정시키는 것",
-                            "노란색 계열의 쿠션이나 액자를 활용하여 집안의 생기를 불어넣는 행동"
-                        ]
-                    },
-                    interiorSuggestions: [
-                        "거실 발코니 방향에 작은 수족관이나 가습기를 놓아 수기를 순환시키세요.",
-                        "주방에는 원목 소재의 조리도구를 비치하여 화기를 조절할 수 있습니다."
-                    ],
-                    marketValue: {
-                        trading: "6억 원 ~ 7억 원선 (시세 평균)",
-                        jeonse: "3억 5천만 원 ~ 4억 원선",
-                        wolse: "보증금 5천만 원 / 월세 120만 원 상당"
-                    }
-                };
-                updateUI(mockResult);
-            } finally {
-                document.getElementById('loadingScreen').classList.add('hidden');
+                const resultData = JSON.parse(jsonMatch[1]);
+
+                // Map data to DOM
+                document.getElementById('resHeaderTitle').textContent = `${name} 님과 해당 공간의 주파수`;
+                document.getElementById('resAddressText').textContent = address;
+                document.getElementById('resScore').textContent = `${resultData.score}점`;
+                document.getElementById('resGrade').textContent = resultData.grade;
+
+                // Adjust Circular progress bar
+                const strokeDashValue = `${resultData.score}, 100`;
+                document.getElementById('scoreCircle').setAttribute('stroke-dasharray', strokeDashValue);
+
+                // Gender Age details
+                document.getElementById('resGenderAge').textContent = `${gender} · ${calendarType}`;
+                document.getElementById('resBirthDate').textContent = `${birthDate} ${birthTime} 생시 반영`;
+
+                // Tab 1 Saju Mapping
+                document.getElementById('element-wood').textContent = resultData.fiveElements.wood;
+                document.getElementById('element-fire').textContent = resultData.fiveElements.fire;
+                document.getElementById('element-earth').textContent = resultData.fiveElements.earth;
+                document.getElementById('element-metal').textContent = resultData.fiveElements.metal;
+                document.getElementById('element-water').textContent = resultData.fiveElements.water;
+                document.getElementById('sajuDetailAnalysis').innerHTML = `<p class="leading-relaxed whitespace-pre-wrap">${resultData.sajuDetail}</p>`;
+
+                // Tab 2 Fengshui Mapping
+                document.getElementById('fengShuiGeomancy').innerHTML = `<p class="leading-relaxed whitespace-pre-wrap">${resultData.geomancy}</p>`;
+                document.getElementById('addressLore').innerHTML = `<p class="leading-relaxed whitespace-pre-wrap">${resultData.lore}</p>`;
+                document.getElementById('priceTrade').textContent = resultData.prices.trade;
+                document.getElementById('priceRent').textContent = resultData.prices.rent;
+
+                // Tab 3 Compatibility mapping
+                document.getElementById('factorTian').textContent = resultData.factors.tian;
+                document.getElementById('factorDi').textContent = resultData.factors.di;
+                document.getElementById('factorFeng').textContent = resultData.factors.feng;
+                document.getElementById('compatibilityDeepAnalysis').innerHTML = `<p class="leading-relaxed whitespace-pre-wrap">${resultData.compatibilityDeep}</p>`;
+
+                // Tab 4 Remedies mapping
+                const harmfulList = document.getElementById('harmfulBehaviorsList');
+                harmfulList.innerHTML = '';
+                resultData.harmfulBehaviors.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.className = "flex items-start space-x-3 bg-red-50/50 p-3 rounded-xl border border-red-100";
+                    li.innerHTML = `
+                        <span class="w-5 h-5 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">${index+1}</span>
+                        <span class="text-stone-700 leading-normal">${item}</span>
+                    `;
+                    harmfulList.appendChild(li);
+                });
+
+                const boostingList = document.getElementById('boostingBehaviorsList');
+                boostingList.innerHTML = '';
+                resultData.boostingBehaviors.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.className = "flex items-start space-x-3 bg-green-50/50 p-3 rounded-xl border border-green-100";
+                    li.innerHTML = `
+                        <span class="w-5 h-5 rounded-full bg-green-100 text-wood flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">${index+1}</span>
+                        <span class="text-stone-700 leading-normal">${item}</span>
+                    `;
+                    boostingList.appendChild(li);
+                });
+
+                // Interior Tips Cards
+                const interiorContainer = document.getElementById('interiorCards');
+                interiorContainer.innerHTML = '';
+                resultData.interiorTips.forEach(tip => {
+                    const card = document.createElement('div');
+                    card.className = "bg-white p-5 rounded-2xl border border-cream-200 shadow-sm space-y-2";
+                    card.innerHTML = `
+                        <span class="inline-block bg-cream-100 text-cream-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full">${tip.room}</span>
+                        <h4 class="font-bold text-stone-900 text-sm font-serif-kr"><i class="fa-solid fa-wand-magic-sparkles text-earth mr-1"></i> ${tip.item}</h4>
+                        <p class="text-xs text-stone-600 leading-relaxed">${tip.reason}</p>
+                    `;
+                    interiorContainer.appendChild(card);
+                });
+
+                // Clear loading screen and show results
+                clearInterval(interval);
+                document.getElementById('loadingSection').classList.add('hidden');
                 document.getElementById('resultSection').classList.remove('hidden');
+                switchTab('tab-saju'); // Go to first tab by default
+                document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+
+            } catch (err) {
+                clearInterval(interval);
+                document.getElementById('loadingSection').classList.add('hidden');
+                showError("우주 기운 수집 중 에러가 발생했어요! 인터넷 연결 상태나 주소를 다시 확인해주세요: " + err.message);
             }
-        });
-
-        // UI Population function
-        function updateUI(data) {
-            // Saju Cards
-            document.getElementById('txtYearGanji').innerText = data.saju.yearGanji;
-            document.getElementById('txtMonthGanji').innerText = data.saju.monthGanji;
-            document.getElementById('txtDayGanji').innerText = data.saju.dayGanji;
-            document.getElementById('txtTimeGanji').innerText = data.saju.timeGanji;
-            
-            document.getElementById('daymasterBadge').innerText = data.saju.daymaster;
-            document.getElementById('sajuAnalysisText').innerText = data.saju.analysisText;
-
-            // Five elements progress bars
-            const f = data.saju.fiveElements;
-            document.getElementById('valWood').innerText = f.wood + '%';
-            document.getElementById('barWood').style.width = f.wood + '%';
-            document.getElementById('valFire').innerText = f.fire + '%';
-            document.getElementById('barFire').style.width = f.fire + '%';
-            document.getElementById('valEarth').innerText = f.earth + '%';
-            document.getElementById('barEarth').style.width = f.earth + '%';
-            document.getElementById('valMetal').innerText = f.metal + '%';
-            document.getElementById('barMetal').style.width = f.metal + '%';
-            document.getElementById('valWater').innerText = f.water + '%';
-            document.getElementById('barWater').style.width = f.water + '%';
-
-            // Feng Shui & Compatibility
-            document.getElementById('fengShuiMeaning').innerText = data.fengShui.meaning;
-            document.getElementById('fengShuiEnergy').innerText = data.fengShui.energy;
-            document.getElementById('compatibilityExplanation').innerText = data.compatibility.explanation;
-
-            // Score Gauge
-            const score = data.compatibility.score;
-            document.getElementById('scoreText').innerText = score;
-            const progress = document.getElementById('scoreProgress');
-            const circumference = 2 * Math.PI * 70; // r=70 -> ~439.8
-            const offset = circumference - (score / 100) * circumference;
-            progress.style.strokeDasharray = `${circumference}`;
-            progress.style.strokeDashoffset = `${offset}`;
-
-            // Harmful Actions List
-            const harmfulList = document.getElementById('harmfulActions');
-            harmfulList.innerHTML = '';
-            data.actions.harmful.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'flex items-start space-x-2';
-                li.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1 flex-shrink-0"></i> <span>${item}</span>`;
-                harmfulList.appendChild(li);
-            });
-
-            // Complementary Actions List
-            const complementaryList = document.getElementById('complementaryActions');
-            complementaryList.innerHTML = '';
-            data.actions.complementary.forEach(item => {
-                const li = document.createElement('li');
-                li.className = 'flex items-start space-x-2';
-                li.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-500 mt-1 flex-shrink-0"></i> <span>${item}</span>`;
-                complementaryList.appendChild(li);
-            });
-
-            // Interior Suggestions
-            const interiorContainer = document.getElementById('interiorSuggestions');
-            interiorContainer.innerHTML = '';
-            data.interiorSuggestions.forEach((item, index) => {
-                const div = document.createElement('div');
-                div.className = 'bg-stone-50 dark:bg-zinc-800 p-4 rounded-xl border border-stone-100 dark:border-zinc-700/50 flex space-x-3 items-start';
-                div.innerHTML = `
-                    <div class="bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 w-6 h-6 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0">${index + 1}</div>
-                    <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">${item}</p>
-                `;
-                interiorContainer.appendChild(div);
-            });
-
-            // Market Values
-            document.getElementById('estateTrading').innerText = data.marketValue.trading;
-            document.getElementById('estateJeonse').innerText = data.marketValue.jeonse;
-            document.getElementById('estateWolse').innerText = data.marketValue.wolse;
-            
-            // Scroll to results beautifully
-            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
-        }
+        };
     </script>
 </body>
 </html>
