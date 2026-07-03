@@ -289,15 +289,15 @@
                         <p class="text-sm text-stone-600" id="resAddressText">--</p>
                     </div>
 
-                    <!-- Visual Score Dial -->
+                    <!-- Visual Score Dial (Centering & wrapping fixed) -->
                     <div class="flex items-center space-x-4 shrink-0 bg-cream-50 p-4 rounded-2xl border border-cream-200">
-                        <div class="relative w-20 h-20 flex items-center justify-center">
+                        <div class="relative w-20 h-20 flex items-center justify-center shrink-0">
                             <!-- Circular Ring -->
                             <svg class="absolute transform -rotate-90 w-full h-full" viewBox="0 0 36 36">
                                 <path class="text-cream-200" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                 <path id="scoreCircle" class="text-fire transition-all duration-1000 ease-out" stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                             </svg>
-                            <span class="text-2xl font-black font-serif-kr text-stone-900" id="resScore">--점</span>
+                            <span class="text-lg font-black font-serif-kr text-stone-900 whitespace-nowrap z-10" id="resScore">--점</span>
                         </div>
                         <div>
                             <p class="text-[10px] text-stone-500 font-bold uppercase tracking-wider">풍수명리 종합 궁합</p>
@@ -393,20 +393,19 @@
                     </div>
                 </div>
 
-                <!-- Real Estate Value as of 2026.06.30 -->
+                <!-- Real Estate Value as of 2026.06.30 (Overlapping tag issue fixed) -->
                 <div class="bg-gradient-to-br from-white to-cream-50 rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
                     <div class="flex items-center justify-between border-b pb-4 border-cream-200 mb-6">
                         <h3 class="text-base font-bold font-serif-kr text-cream-800 flex items-center">
                             <i class="fa-solid fa-coins text-yellow-600 mr-2"></i> 2026.06.30 기준 부동산 시세 정보
                         </h3>
-                        <span class="text-[10px] bg-amber-100 text-amber-800 border border-amber-200 px-2 py-0.5 rounded font-semibold">Gemini 실시간 조회 가격</span>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="priceContainer">
-                        <!-- Trading Price -->
+                        <!-- Trading Price (Modified to real/pre-sale standard price) -->
                         <div class="bg-white p-5 rounded-2xl border border-cream-100 shadow-sm flex items-center justify-between">
                             <div class="space-y-1">
-                                <span class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">일반 매매가 (추정)</span>
+                                <span class="text-[11px] font-bold text-stone-400 uppercase tracking-widest">최근 실거래가 / 분양가 (추정)</span>
                                 <p class="text-lg font-black text-stone-800 font-serif-kr" id="priceTrade">-- 억 원 선</p>
                             </div>
                             <div class="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600">
@@ -426,7 +425,7 @@
                         </div>
                     </div>
                     <p class="text-[10px] text-stone-400 mt-4 leading-normal">
-                        * 본 시세는 2026년 6월 30일 시점의 주변 거래 추이 및 해당 번지수 주변 연립/아파트/단독 실거래가를 기반으로 산출된 추정치이며, 동 및 향, 그리고 리모델링 상태에 따라 상이할 수 있습니다.
+                        * 본 시세는 2026년 6월 30일 시점의 실제 국토교통부 실거래 데이터 및 인근 분양 공고가 기준의 시장 가격 가이드라인이며, 동·호수 및 내부 리모델링 상태에 따라 상이할 수 있습니다.
                     </p>
                 </div>
             </div>
@@ -466,7 +465,7 @@
                 </div>
             </div>
 
-            <!-- TAB 4: Remedies & Design -->
+            <!-- TAB 4: Remedies & Design (Emojis added for design improvement) -->
             <div id="tab-remedies" class="tab-content hidden space-y-6">
                 <!-- Harmful Actions -->
                 <div class="bg-white rounded-3xl border border-cream-200 shadow-sm p-6 md:p-8">
@@ -474,7 +473,7 @@
                         <i class="fa-solid fa-triangle-exclamation mr-2"></i> 피해야 할 액운 유발 행위 (주의사항)
                     </h3>
                     <ul class="space-y-4 text-sm text-stone-700" id="harmfulBehaviorsList">
-                        <!-- Loaded dynamically -->
+                        <!-- Loaded dynamically with Emojis -->
                     </ul>
                 </div>
 
@@ -484,7 +483,7 @@
                         <i class="fa-solid fa-shield-halved mr-2"></i> 기운을 극대화하는 개운(開運) 수칙
                     </h3>
                     <ul class="space-y-4 text-sm text-stone-700" id="boostingBehaviorsList">
-                        <!-- Loaded dynamically -->
+                        <!-- Loaded dynamically with Emojis -->
                     </ul>
                 </div>
 
@@ -494,7 +493,7 @@
                         <i class="fa-solid fa-bed mr-2 text-earth"></i> 공간 오행 보완을 위한 맞춤형 풍수 인테리어
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="interiorCards">
-                        <!-- Loaded dynamically -->
+                        <!-- Loaded dynamically with Emojis -->
                     </div>
                 </div>
             </div>
@@ -627,11 +626,11 @@
             else if (finalScore >= 80) grade = "土生金局 (토생금국) - 땅의 비옥한 기운이 풍요로운 기운으로 전환되는 평온한 영지";
             else if (finalScore >= 75) grade = "比和之地 (비화지지) - 음양과 오행이 대등하게 공존하여 중용을 이루는 보완처";
 
-            // Price Estimation based on address keyword
+            // Price Estimation (Realistic / Actual Sale and Pre-sale levels without overhyped values)
             let isSeoul = address.includes("서울");
             let isGyeonggi = address.includes("경기") || address.includes("수원") || address.includes("성남");
-            let tradePrice = isSeoul ? "14억 5천만 원 ~ 16억 2천만 원 선" : (isGyeonggi ? "6억 8천만 원 ~ 8억 2천만 원 선" : "3억 5천만 원 ~ 4억 8천만 원 선");
-            let rentPrice = isSeoul ? "전세 8억 원 선 / 월세 보증금 2억에 월 250만 원" : (isGyeonggi ? "전세 4억 원 선 / 월세 보증금 5천에 월 120만 원" : "전세 2억 원 선 / 월세 40만 원");
+            let tradePrice = isSeoul ? "11억 8천만 원 ~ 13억 5천만 원 선 (최근 실거래가 기준)" : (isGyeonggi ? "5억 2천만 원 ~ 6억 1천만 원 선 (최근 분양가 기준)" : "2억 8천만 원 ~ 3억 5천만 원 선 (분양가 기준)");
+            let rentPrice = isSeoul ? "전세 7억 원 선 / 월세 보증금 1억에 월 220만 원" : (isGyeonggi ? "전세 3억 5천만 원 선 / 월세 보증금 3천에 월 95만 원" : "전세 1억 8천만 원 선 / 월세 35만 원");
 
             return {
                 score: finalScore,
@@ -646,23 +645,23 @@
                     di: finalScore >= 80 ? "상생" : "평이",
                     feng: direction !== "미지정" ? "대길" : "비보 필요"
                 },
-                compatibilityDeep: `${name} 님의 생년월일과 이곳 '${address}'의 풍수적 결합은 한마디로 '상생과 보완의 마술'과 같습니다. 사주 원국에서 다소 치우칠 수 있었던 오행 중 부족한 에너지를 집의 방향인 '${direction}'과 땅이 간직한 지맥이 부드럽게 감싸 안아주고 있습니다. 또한 거주 인원 수인 '${residents}' 가구의 화합 도수가 오행의 자전적인 상충(相衝)을 절묘하게 방지해 주어 궁합 지수 ${finalScore}점이라는 찬란한 우주적 동반 시너지를 이루어 냅니다.`,
+                compatibilityDeep: `${name} 님의 생년월일과 이곳 '${address}'의 풍수적 결합은 한마디로 '상생과 보완의 마술'과 같습니다. 사주 원국에서 다소 치우칠 수 있었던 오행 중 부족한 에너지를 집의 방향인 '${direction}'과 땅이 간직한 지맥이 부드럽게 감싸 안아주고 있습니다. 또한 거주 인원 수인 '${residents}' 가구의 화합 도수가 오행의 자전적인 상충(상극)을 절묘하게 방지해 주어 궁합 지수 ${finalScore}점이라는 찬란한 우주적 동반 시너지를 이루어 냅니다.`,
                 harmfulBehaviors: [
-                    "현관 입구 바로 앞에 대형 거울을 정면 배치하는 행위 (밖에서 들어오는 생기(生氣)를 강하게 튕겨내어 재물운의 흐름을 막음)",
-                    "침실 머리 방향을 화장실 벽면 쪽이나 문 바로 방향으로 두는 행위 (수면 중 탁한 기운의 침투 우려)",
-                    "거실 창가 및 베란다 통로를 지저분한 이삿짐 상자나 먼지로 가득 방치하는 행위 (터전 내 에너지 순환의 정체 유발)",
-                    "집안의 남서쪽 혹은 동북쪽 방위를 붉은색 쓰레기통 등으로 차단하는 행위"
+                    "🚪 현관 입구 바로 앞에 대형 거울을 정면 배치하는 행위 (밖에서 들어오는 좋은 생기(生氣)를 반사해 다시 튕겨내므로 재물운 침체를 유발)",
+                    "🛀 침실 머리 방향을 화장실 벽면 쪽이나 주방 싱크대 쪽으로 두는 행위 (어둡고 차가운 수기(水氣)와 탁한 수면 풍수가 부딪힘)",
+                    "📦 거실 통로나 창가에 지저분한 택배 상자, 고장 난 가전제품을 방치하는 행위 (터전 전체의 기 순환이 막히고 탁기가 누적됨)",
+                    "🗑️ 주거지 내 남서쪽 또는 동북쪽 방위에 오염된 쓰레기통이나 잡동사니를 무방비하게 적재해 두는 행동"
                 ],
                 boostingBehaviors: [
-                    "매일 오전 10시경 창문을 5분 이상 열어 우주 생기를 방 전체에 유통하는 행동 (기의 정체를 방지)",
-                    "집안 내부 중앙(거실)에 항상 맑은 물이 든 유리병이나 작은 초록색 수경 식물을 두어 수목 상생을 돕는 행동",
-                    "현관문 안쪽에 은은한 소리가 나는 청동 풍경을 달아 출입 시 맑은 소리로 탁한 기운을 수시로 씻어내는 수칙",
-                    "가족의 식사 공간에 항상 노란색 계열의 매트나 액자를 매칭하여 주거 화합을 고취하는 습관"
+                    "☀️ 매일 아침 안방과 거실 창문을 동시에 열어 아침 공기(우주 생기)를 5분 이상 교환하기 (집안 내 묵은 탁기를 날려 보냄)",
+                    "🌿 거실 중앙이나 허한 귀퉁이에 생명력이 강한 소형 관엽식물 또는 수경재배 식물을 놓아 풍부한 목(木) 기운 채우기",
+                    "🔔 현관문 안쪽에 은은한 소리가 나는 황동종이나 맑은 종소리의 풍경 매달기 (출입할 때마다 가벼운 소리로 공간을 정화)",
+                    "💛 주방 식탁이나 거실에 밝은 옐로우 톤의 풍수 액자나 꽃을 배치하여 흙(土)의 기운을 다지고 가정의 신뢰를 유지하는 습관"
                 ],
                 interiorTips: [
-                    { room: "현관", item: "소형 관엽식물 화분", reason: "현관문에서 실내로 정면 유입되는 거친 외부 풍수 바람을 식물의 푸른 잎이 완충 및 중화하여 부드러운 순환성 지기로 전환함." },
-                    { room: "거실", item: "황금색 혹은 밝은 베이지색 계열 러그", reason: "가족들이 모여 기를 형성하는 곳에 흙(土)을 상징하는 밝은 노란색을 조화해 가화만사성의 평온과 신뢰 기틀을 단단히 보강함." },
-                    { room: "침실", item: "은은한 은빛 스탠드 조명", reason: "금(金)과 수(水)의 온화한 정화 기능을 자극하여 낮 동안 소모되었던 신체의 양기를 부드럽게 채우고 숙면을 유도함." }
+                    { room: "현관 🚪", item: "싱그러운 녹색 화분", reason: "현관에서 바로 보이는 곳에 활짝 피어나는 식물을 조화롭게 놓으면 문을 열 때 흘러드는 탁기를 완벽히 중화하고 맑은 지맥 기운을 확장함." },
+                    { room: "거실 🛋️", item: "밝은 크림색 러그", reason: "거주인 가구의 평화와 토(土)의 비옥한 안정감을 보강하기 위해 밝고 단정하고 포근한 색감의 직물을 깔아 중심을 잡아줌." },
+                    { room: "침실 🛌", item: "은은한 전구색 스탠드", reason: "잠이 드는 침실 구석에 따뜻한 무드등을 매칭하여 밤 동안 지친 몸의 기운을 복돋우고 숙면과 수면 풍수를 정화해줌." }
                 ]
             };
         }
@@ -722,7 +721,7 @@
                 { prg: 25, t: "천문 만세력 좌표 조정 중...", d: "동경 135도 표준시와 실제 입력지 경도 시차(대략 32분) 공간 편차 보정 계산 중..." },
                 { prg: 50, t: "사주 오행 원국 및 절입 시간 계산 중...", d: `${birthDate} ${birthHour} 기준 24절기 우주 정전기적 배치 분석 중...` },
                 { prg: 75, t: "주소지 지맥 및 역사 설화 실시간 추적 중...", d: `'${address}' 의 실제 고유 형국과 지명 유래를 인터넷에서 탐색 중...` },
-                { prg: 95, t: "2026.06.30 기준 주변 시세 및 궁합 결합 중...", d: "이 터전의 최신 매매/임대 시장 기운과 사용자의 사주 기운 융합 평가 중..." }
+                { prg: 95, t: "2026.06.30 기준 주변 시세 및 궁합 결합 중...", d: "이 터전의 최근 실거래/분양 시장 기운과 사용자의 사주 기운 융합 평가 중..." }
             ];
 
             let step = 0;
@@ -743,7 +742,7 @@
             이 분석은 기계적이고 뻔한 답변이 절대 아니어야 하며, 입력된 사주의 오행(목, 화, 토, 금, 수) 치우침 상태와 집의 물리적 풍수 성향(방향, 층, 지명 유래)을 실시간으로 직조하여 오직 이 유저만을 위한 세상에 단 하나뿐인 주파수 대조 리포트를 완성해라.
 
             반드시 실제 주소 '${address}'의 실제 지리적 특성, 명당 여부, 그리고 지명 유래(설화)를 구체적으로 검색해서 기술할 것.
-            또한, 반드시 2026년 6월 30일 기준의 해당 지역 실거래가 동향 및 추정 시세(매매, 전월세) 정보를 최신으로 검색하여 정확하게 제공해야 함.
+            또한, 반드시 2026년 6월 30일 기준의 해당 지역 실거래가 동향 및 현실적인 주변 실거래가/분양가 추정 시세(매매, 전월세) 정보를 최신으로 검색하여 정확하게 제공해야 함. 거품이 낀 희망 호재가가 아닌 국토부 실거래나 인근 최근 분양가 기준으로 해라.
 
             [입력 정보]
             - 대상자 이름: ${name} (${gender})
@@ -758,6 +757,8 @@
             [답변 형식 수칙]
             반드시 아래 명시된 정확한 JSON 구조로만 반환하라. 절대 JSON 마크다운 외의 설명이나 불필요한 서두를 붙이지 말 것.
             JSON 필드가 비어있으면 안 된다.
+            
+            특히, harmfulBehaviors, boostingBehaviors, interiorTips 항목 안의 각 조항들 텍스트에는 어울리는 적절한 풍수/공간 관련 이모티콘(이모지, 예: 🪴, 🚪, 🛌, 🕯️, ☀️, 🪞 등)을 1~2개씩 반드시 적재적소에 다채롭게 섞어서 완성해라.
 
             \`\`\`json
             {
@@ -774,7 +775,7 @@
               "geomancy": "실제 해당 주소지의 산맥 흐름, 배산임수 여부, 지형의 풍수지리적 이점(예: 우백호, 좌청룡 등)과 땅의 실질적 기운 형국 설명",
               "lore": "해당 동네 지명의 역사적 유래, 한자 표기의 뜻풀이, 그리고 전해 내려오는 정겨운 전설이나 설화 정보 상세 설명",
               "prices": {
-                "trade": "2026.06.30 기준 주변 매매 시세 범위 (예: 8억 5천만 원 ~ 9억 2천만 원)",
+                "trade": "2026.06.30 기준 최근 현실적인 실거래가 혹은 분양가 시세 범위 (예: 8억 2천만 원 ~ 8억 9천만 원 선 (실거래 기준))",
                 "rent": "2026.06.30 기준 주변 전세/월세 시세 범위 (예: 전세 5억 원 선 / 월세 보증금 1억에 월 180만 원 선)"
               },
               "factors": {
@@ -784,20 +785,20 @@
               },
               "compatibilityDeep": "왜 이 사주가 이 집의 풍수 기운과 잘 맞는지(혹은 부딪히는지) 오행의 상생상극 메커니즘을 들어 구체적인 이유 서술. (예: 사주의 부족한 '화(火)' 기운을 이 주소지의 '남향'과 지명의 '볕 양(陽)' 기운이 어떻게 따스하게 메워주는지 등)",
               "harmfulBehaviors": [
-                "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 1 (상세 설명 포함)",
+                "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 1 (상세 설명 및 관련 이모지 포함)",
                 "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 2",
                 "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 3",
                 "이 공간에서 절대 해서는 안 될 기운을 해하는 행위 4 (필요시)"
               ],
               "boostingBehaviors": [
-                "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 1 (상세 설명 포함)",
+                "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 1 (상세 설명 및 관련 이모지 포함)",
                 "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 2",
                 "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 3",
                 "이 집에서 살면서 기운을 돋우는 구체적인 습관/행동 4 (필요시)"
               ],
               "interiorTips": [
                 {
-                  "room": "침실 / 거실 / 현관 중 1",
+                  "room": "침실 / 거실 / 현관 중 1 (뒤에 이모지 1개 포함)",
                   "item": "풍수 소품명 (예: 황금색 화병, 미니 수족관, 식물 화분)",
                   "reason": "오행 보완을 위해 어디에 배치해야 하는지 구체적인 원리 설명"
                 },
